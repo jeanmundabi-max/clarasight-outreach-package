@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clarasight — GTM Plan | MDB Growth Capital</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --indigo: #514FEE;
+      --indigo-dark: #3B39CC;
+      --indigo-light: #EAE9FE;
+      --mint: #A8FFE5;
+      --dark: #07061A;
+      --mid: #2A2840;
+      --muted: #6B6A8A;
+      --light-bg: #F7F7FF;
+      --white: #FFFFFF;
+      --linkedin: #0077B5;
+      --review: #8B8A9E;
+    }
+
+    html {
+      font-size: 18px;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background-color: var(--light-bg);
+      color: var(--dark);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── Layout ─────────────────────────────────────────── */
+    .page-wrapper {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 32px 80px;
+    }
+
+    /* ─── Cover ──────────────────────────────────────────── */
+    .cover {
+      background: var(--dark);
+      color: var(--white);
+      padding: 64px 0 56px;
+      margin: 0 -32px 64px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cover::before {
+      content: '';
+      position: absolute;
+      top: -120px;
+      right: -80px;
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(81,79,238,0.35) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cover::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      left: 60px;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(168,255,229,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cover-inner {
+      position: relative;
+      z-index: 1;
+      padding: 0 48px;
+    }
+
+    .cover-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mint);
+      margin-bottom: 24px;
+    }
+
+    .cover-eyebrow::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--mint);
+      flex-shrink: 0;
+    }
+
+    .cover-title {
+      font-size: 2.8rem;
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      max-width: 620px;
+    }
+
+    .cover-title span {
+      color: var(--mint);
+    }
+
+    .cover-subtitle {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.65);
+      max-width: 520px;
+      margin-bottom: 40px;
+      font-weight: 400;
+    }
+
+    .cover-meta {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .cover-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .cover-meta-label {
+      font-size: 0.67rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .cover-meta-value {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--white);
+    }
+
+    /* ─── Section labels ──────────────────────────────────── */
+    .section-label {
+      font-size: 0.67rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--indigo);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+
+    .section-desc {
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 640px;
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+
+    /* ─── Divider ─────────────────────────────────────────── */
+    .divider {
+      height: 1px;
+      background: rgba(81,79,238,0.12);
+      margin: 56px 0;
+    }
+
+    /* ─── Pillar Grid ─────────────────────────────────────── */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .pillar-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 28px 28px 24px;
+      border: 1px solid rgba(81,79,238,0.1);
+      position: relative;
+      overflow: hidden;
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .pillar-card:hover {
+      box-shadow: 0 8px 32px rgba(81,79,238,0.1);
+      transform: translateY(-2px);
+    }
+
+    .pillar-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--indigo), var(--mint));
+    }
+
+    .pillar-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--indigo-light);
+      color: var(--indigo);
+      font-size: 0.78rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .pillar-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .pillar-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+
+    .pillar-kpis {
+      background: var(--light-bg);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 16px;
+    }
+
+    .pillar-kpis-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--indigo);
+      margin-bottom: 8px;
+    }
+
+    .pillar-kpis ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .pillar-kpis li {
+      font-size: 0.8rem;
+      color: var(--mid);
+      padding-left: 14px;
+      position: relative;
+      line-height: 1.5;
+    }
+
+    .pillar-kpis li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--indigo);
+      font-weight: 700;
+      font-size: 0.72rem;
+    }
+
+    .pillar-tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tool-tag {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: var(--muted);
+      background: rgba(81,79,238,0.06);
+      border: 1px solid rgba(81,79,238,0.12);
+      border-radius: 6px;
+      padding: 3px 8px;
+    }
+
+    /* Pillar 5 — full-width ─────────── */
+    .pillar-card.full-width {
+      grid-column: 1 / -1;
+    }
+
+    .pillar-card.full-width .pillar-desc {
+      max-width: 680px;
+    }
+
+    .pillar-card.full-width .pillar-kpis ul {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 24px;
+    }
+
+    /* ─── 10-Day Sequence ─────────────────────────────────── */
+    .sequence-table-wrap {
+      overflow-x: auto;
+      border-radius: 14px;
+      border: 1px solid rgba(81,79,238,0.1);
+      box-shadow: 0 2px 16px rgba(7,6,26,0.04);
+    }
+
+    table.sequence-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--white);
+      font-size: 0.85rem;
+    }
+
+    .sequence-table thead tr {
+      background: var(--dark);
+      color: var(--white);
+    }
+
+    .sequence-table thead th {
+      padding: 14px 18px;
+      text-align: left;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .sequence-table tbody tr {
+      border-bottom: 1px solid rgba(81,79,238,0.07);
+      transition: background 0.15s ease;
+    }
+
+    .sequence-table tbody tr:last-child {
+      border-bottom: none;
+    }
+
+    .sequence-table tbody tr:hover {
+      background: var(--light-bg);
+    }
+
+    .sequence-table td {
+      padding: 13px 18px;
+      vertical-align: top;
+      line-height: 1.5;
+      color: var(--mid);
+    }
+
+    .day-badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--dark);
+      white-space: nowrap;
+      min-width: 48px;
+    }
+
+    .channel-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border-radius: 20px;
+      padding: 3px 10px;
+      white-space: nowrap;
+    }
+
+    .channel-badge.email {
+      background: rgba(81,79,238,0.1);
+      color: var(--indigo);
+    }
+
+    .channel-badge.linkedin {
+      background: rgba(0,119,181,0.1);
+      color: var(--linkedin);
+    }
+
+    .channel-badge.review {
+      background: rgba(139,138,158,0.1);
+      color: var(--review);
+    }
+
+    .channel-badge svg {
+      width: 12px;
+      height: 12px;
+      flex-shrink: 0;
+    }
+
+    .action-text {
+      font-weight: 600;
+      color: var(--dark);
+      font-size: 0.82rem;
+    }
+
+    .content-text {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    /* ─── 12-Week Roadmap ─────────────────────────────────── */
+    .roadmap-phases {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .phase-card {
+      background: var(--white);
+      border-radius: 14px;
+      padding: 24px 24px 22px;
+      border: 1px solid rgba(81,79,238,0.1);
+      position: relative;
+    }
+
+    .phase-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .phase-weeks {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--indigo);
+      color: var(--white);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      border-radius: 8px;
+      padding: 5px 10px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .phase-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--dark);
+      line-height: 1.25;
+    }
+
+    .phase-items {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .phase-items li {
+      font-size: 0.82rem;
+      color: var(--mid);
+      padding-left: 16px;
+      position: relative;
+      line-height: 1.55;
+    }
+
+    .phase-items li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 9px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--indigo);
+      flex-shrink: 0;
+    }
+
+    /* Phase accent bars */
+    .phase-card:nth-child(1) .phase-weeks { background: var(--indigo); }
+    .phase-card:nth-child(2) .phase-weeks { background: #3B39CC; }
+    .phase-card:nth-child(3) .phase-weeks { background: #2A28B0; }
+    .phase-card:nth-child(4) .phase-weeks { background: #1D1B99; }
+
+    /* ─── CTA Block ───────────────────────────────────────── */
+    .cta-block {
+      background: var(--dark);
+      border-radius: 20px;
+      padding: 52px 48px;
+      margin-top: 64px;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .cta-block::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -60px;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(81,79,238,0.3) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-block::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      left: 40px;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(168,255,229,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-block-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-eyebrow {
+      font-size: 0.67rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--mint);
+      margin-bottom: 16px;
+    }
+
+    .cta-title {
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-desc {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 32px;
+      max-width: 440px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.65;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: var(--indigo);
+      color: var(--white);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      padding: 16px 36px;
+      border-radius: 10px;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .cta-button:hover {
+      background: var(--indigo-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(81,79,238,0.4);
+    }
+
+    .cta-sub {
+      margin-top: 16px;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.35);
+    }
+
+    /* ─── Footer ──────────────────────────────────────────── */
+    .footer {
+      margin-top: 56px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(81,79,238,0.12);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-brand {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .footer-brand strong {
+      color: var(--dark);
+    }
+
+    .footer-confidential {
+      font-size: 0.72rem;
+      color: var(--review);
+      letter-spacing: 0.04em;
+    }
+
+    /* ─── Print ───────────────────────────────────────────── */
+    @media print {
+      body { background: #fff; font-size: 14px; }
+      .cover { background: var(--dark) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; margin: 0 0 40px; }
+      .pillar-card, .phase-card { break-inside: avoid; }
+      .cta-block { background: var(--dark) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .pillar-card:hover, .cta-button:hover { transform: none; box-shadow: none; }
+    }
+
+    /* ─── Responsive ──────────────────────────────────────── */
+    @media (max-width: 720px) {
+      html { font-size: 16px; }
+      .page-wrapper { padding: 0 20px 60px; }
+      .cover { margin: 0 -20px 48px; }
+      .cover-inner { padding: 0 24px; }
+      .cover-title { font-size: 2rem; }
+      .pillars-grid { grid-template-columns: 1fr; }
+      .pillar-card.full-width .pillar-kpis ul { grid-template-columns: 1fr; }
+      .roadmap-phases { grid-template-columns: 1fr; }
+      .cta-block { padding: 36px 28px; }
+      .cta-title { font-size: 1.5rem; }
+      .cover-meta { gap: 24px; }
+      .footer { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── Cover ──────────────────────────────────────────── -->
+  <div class="cover">
+    <div class="cover-inner">
+      <div class="cover-eyebrow">GTM Plan — Enterprise Travel Analytics</div>
+      <h1 class="cover-title">
+        5 Pillars to Own<br />
+        <span>Enterprise Travel Analytics</span>
+      </h1>
+      <p class="cover-subtitle">
+        A 12-week go-to-market plan built for Clarasight's Series A stage — targeting the five enterprise buying windows where travel analytics decisions are live right now.
+      </p>
+      <div class="cover-meta">
+        <div class="cover-meta-item">
+          <span class="cover-meta-label">Prepared for</span>
+          <span class="cover-meta-value">Adam Braun, CEO — Clarasight</span>
+        </div>
+        <div class="cover-meta-item">
+          <span class="cover-meta-label">Prepared by</span>
+          <span class="cover-meta-value">Jean Mundabi Fala, MDB Growth Capital</span>
+        </div>
+        <div class="cover-meta-item">
+          <span class="cover-meta-label">Stage</span>
+          <span class="cover-meta-value">Series A — $11.5M (April 2026)</span>
+        </div>
+        <div class="cover-meta-item">
+          <span class="cover-meta-label">Date</span>
+          <span class="cover-meta-value">May 2026</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-wrapper">
+
+    <!-- ─── 5 Pillars ─────────────────────────────────────── -->
+    <div>
+      <div class="section-label">The Architecture</div>
+      <h2 class="section-title">5 GTM Pillars</h2>
+      <p class="section-desc">
+        Each pillar targets a different failure point in the enterprise sales motion. Together they create a compounding revenue system — not a one-time outreach blast.
+      </p>
+
+      <div class="pillars-grid">
+
+        <!-- Pillar 1 -->
+        <div class="pillar-card">
+          <div class="pillar-number">01</div>
+          <div class="pillar-name">Buying Window Intelligence</div>
+          <p class="pillar-desc">
+            Map the full enterprise travel analytics addressable market across five buying window types. Produce a live list of companies in active buying windows — not a broad list of travel managers, but companies where something happened to make them active buyers this quarter.
+          </p>
+          <div class="pillar-kpis">
+            <div class="pillar-kpis-label">Key Performance Indicators</div>
+            <ul>
+              <li>30+ named accounts mapped per quarter</li>
+              <li>100% have confirmed buying signal evidence</li>
+              <li>Lead list refreshed on a 30-day cycle</li>
+            </ul>
+          </div>
+          <div class="pillar-tools">
+            <span class="tool-tag">LinkedIn Jobs</span>
+            <span class="tool-tag">SEC EDGAR 8-K</span>
+            <span class="tool-tag">CMS Open Payments</span>
+            <span class="tool-tag">CDP database</span>
+            <span class="tool-tag">Crunchbase M&amp;A</span>
+          </div>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="pillar-card">
+          <div class="pillar-number">02</div>
+          <div class="pillar-name">Segment-Specific Outreach</div>
+          <p class="pillar-desc">
+            Write messages built for the specific buying window — not a generic travel analytics pitch. A message to a new Head of Travel on day 14 of her job is different from a message to a Chief Financial Officer at a pharma company where the March 31 HCP reconciliation just revealed how broken their data is.
+          </p>
+          <div class="pillar-kpis">
+            <div class="pillar-kpis-label">Key Performance Indicators</div>
+            <ul>
+              <li>5 distinct message variants (one per buying window type)</li>
+              <li>PSS score 85+ on all sequences</li>
+              <li>Reply rate target 3 to 5%</li>
+            </ul>
+          </div>
+          <div class="pillar-tools">
+            <span class="tool-tag">SmartLead</span>
+            <span class="tool-tag">LinkedIn</span>
+            <span class="tool-tag">Clay</span>
+          </div>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="pillar-card">
+          <div class="pillar-number">03</div>
+          <div class="pillar-name">Qualification and Sales Intelligence</div>
+          <p class="pillar-desc">
+            Separate programmes with a live evaluation from those aware of the problem but not yet comparing vendors. Brief Clarasight's sales team before each call: what the programme looks like, what is broken, what the specific buying window is.
+          </p>
+          <div class="pillar-kpis">
+            <div class="pillar-kpis-label">Key Performance Indicators</div>
+            <ul>
+              <li>Pre-call brief delivered for every qualified conversation</li>
+              <li>Buying window classification confirmed before handoff</li>
+              <li>Decision-maker seniority verified before outreach</li>
+            </ul>
+          </div>
+          <div class="pillar-tools">
+            <span class="tool-tag">HubSpot</span>
+            <span class="tool-tag">Clay</span>
+            <span class="tool-tag">Apollo</span>
+          </div>
+        </div>
+
+        <!-- Pillar 4 -->
+        <div class="pillar-card">
+          <div class="pillar-number">04</div>
+          <div class="pillar-name">Authority Engine</div>
+          <p class="pillar-desc">
+            The compounding trust layer that ensures enterprise buyers encounter Clarasight during informal research — not after the shortlist has formed. LinkedIn content flywheel, 20-week value email nurture, micro-budget retargeting, lead scoring, and hot bucket alerts.
+          </p>
+          <div class="pillar-kpis">
+            <div class="pillar-kpis-label">Key Performance Indicators</div>
+            <ul>
+              <li>8 to 12 LinkedIn posts per month</li>
+              <li>20-week nurture sequence active for all engaged non-ready contacts</li>
+              <li>$5 to $10 per day retargeting spend</li>
+              <li>Hot alert delivered same day intent threshold crossed</li>
+            </ul>
+          </div>
+          <div class="pillar-tools">
+            <span class="tool-tag">HubSpot</span>
+            <span class="tool-tag">LinkedIn Campaign Manager</span>
+            <span class="tool-tag">Lead scoring model</span>
+          </div>
+        </div>
+
+        <!-- Pillar 5 — full width -->
+        <div class="pillar-card full-width">
+          <div class="pillar-number">05</div>
+          <div class="pillar-name">Referral Engineering</div>
+          <p class="pillar-desc">
+            Each Business Travel News 100 win becomes an active referral trigger, not a passive hope. Identify which existing customers are referral-ready — high Net Promoter Score signals, recent renewal, Global Business Travel Association community active. Engineer the ask with a specific referral incentive and a named peer programme as the target.
+          </p>
+          <div class="pillar-kpis">
+            <div class="pillar-kpis-label">Key Performance Indicators</div>
+            <ul>
+              <li>Referral ask rate 100% of renewing accounts</li>
+              <li>1 referral introduction per quarter per active customer</li>
+              <li>Case study produced from each Business Travel News 100 win</li>
+              <li>Referral programme tracked in HubSpot by quarter</li>
+            </ul>
+          </div>
+          <div class="pillar-tools">
+            <span class="tool-tag">HubSpot</span>
+            <span class="tool-tag">Global Business Travel Association network</span>
+            <span class="tool-tag">Case study production workflow</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ─── 10-Day Sequence ───────────────────────────────── -->
+    <div>
+      <div class="section-label">The Opening Move</div>
+      <h2 class="section-title">10-Day Outreach Sequence</h2>
+      <p class="section-desc">
+        Day-by-day execution for the first outreach cycle. Every touch uses a different channel and angle. No two messages make the same point.
+      </p>
+
+      <div class="sequence-table-wrap">
+        <table class="sequence-table">
+          <thead>
+            <tr>
+              <th style="width: 72px;">Day</th>
+              <th style="width: 120px;">Channel</th>
+              <th style="width: 160px;">Action</th>
+              <th>Content and Intent</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr>
+              <td><span class="day-badge">Day 0</span></td>
+              <td>
+                <span class="channel-badge email">
+                  <svg viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M1 5l7 5 7-5" stroke="currentColor" stroke-width="1.5"/></svg>
+                  Email
+                </span>
+              </td>
+              <td><span class="action-text">Trigger email sent</span></td>
+              <td><span class="content-text">"Sanofi. GSK. Clifford Chance." — Series A stage shift observation + buying window list offer. First email sets the frame: Clarasight is now competing at a level where informal shortlists form before the RFP lands.</span></td>
+            </tr>
+
+            <tr>
+              <td><span class="day-badge">Day 1</span></td>
+              <td>
+                <span class="channel-badge linkedin">
+                  <svg viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="14" height="14" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M5 7v4M5 5v.5M8 7v4M8 9c0-2 5-2 5 0v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                  LinkedIn
+                </span>
+              </td>
+              <td><span class="action-text">Connection request</span></td>
+              <td><span class="content-text">Business Travel News 100 win rate observation paired with a value-based connection note. No pitch. Build presence in the feed before any ask lands.</span></td>
+            </tr>
+
+            <tr>
+              <td><span class="day-badge">Day 3</span></td>
+              <td>
+                <span class="channel-badge linkedin">
+                  <svg viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="14" height="14" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M5 7v4M5 5v.5M8 7v4M8 9c0-2 5-2 5 0v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                  LinkedIn
+                </span>
+              </td>
+              <td><span class="action-text">Follow-up DM</span></td>
+              <td><span class="content-text">Buying window list offer — 20+ named accounts currently in active evaluation. Reinforces the free value frame introduced on Day 0. Concrete and specific.</span></td>
+            </tr>
+
+            <tr>
+              <td><span class="day-badge">Day 6</span></td>
+              <td>
+                <span class="channel-badge email">
+                  <svg viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M1 5l7 5 7-5" stroke="currentColor" stroke-width="1.5"/></svg>
+                  Email
+                </span>
+              </td>
+              <td><span class="action-text">Friction email sent</span></td>
+              <td><span class="content-text">"Before the shortlist forms" — the informal shortlist formation problem. Enterprise buyers build mental shortlists 6 to 8 weeks before any formal process. A different angle from Day 0.</span></td>
+            </tr>
+
+            <tr>
+              <td><span class="day-badge">Day 7</span></td>
+              <td>
+                <span class="channel-badge review">
+                  <svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M8 5v3l2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                  Review
+                </span>
+              </td>
+              <td><span class="action-text">Check reply rates</span></td>
+              <td><span class="content-text">If open rate is below 40%, review subject lines and sending infrastructure. If reply rate is below 1%, review message-to-segment fit before continuing. Adjust before Day 8.</span></td>
+            </tr>
+
+            <tr>
+              <td><span class="day-badge">Day 8</span></td>
+              <td>
+                <span class="channel-badge linkedin">
+                  <svg viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="14" height="14" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M5 7v4M5 5v.5M8 7v4M8 9c0-2 5-2 5 0v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                  LinkedIn
+                </span>
+              </td>
+              <td><span class="action-text">Breakup note</span></td>
+              <td><span class="content-text">"I'll leave the list with you regardless." Low-friction exit that leaves the door open. Sends buying window list whether or not there has been a reply. No pressure, no passive aggression.</span></td>
+            </tr>
+
+            <tr>
+              <td><span class="day-badge">Day 12</span></td>
+              <td>
+                <span class="channel-badge email">
+                  <svg viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M1 5l7 5 7-5" stroke="currentColor" stroke-width="1.5"/></svg>
+                  Email
+                </span>
+              </td>
+              <td><span class="action-text">Permissionless Value email</span></td>
+              <td><span class="content-text">"HCP travel in 5 pharma" — CMS Open Payments intelligence for 5 named pharma companies. The email IS the value: a live finding from public data that quantifies the reconciliation gap, delivered before asking for anything.</span></td>
+            </tr>
+
+            <tr>
+              <td><span class="day-badge">Day 14</span></td>
+              <td>
+                <span class="channel-badge review">
+                  <svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M8 5v3l2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                  Review
+                </span>
+              </td>
+              <td><span class="action-text">Qualification call brief</span></td>
+              <td><span class="content-text">Brief Clarasight sales team on every qualified responder to date. Buying window type, company profile, what was said in the reply, what they already know. Sales team walks in prepared, not cold.</span></td>
+            </tr>
+
+            <tr>
+              <td><span class="day-badge">Day 21</span></td>
+              <td>
+                <span class="channel-badge review">
+                  <svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M8 5v3l2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                  HubSpot
+                </span>
+              </td>
+              <td><span class="action-text">Nurture entry</span></td>
+              <td><span class="content-text">All non-responders enter the 20-week Authority Engine nurture sequence in HubSpot. Pure value delivery for 20 weeks. No pitches. Hot bucket alert fires when intent threshold is crossed.</span></td>
+            </tr>
+
+            <tr>
+              <td><span class="day-badge">Day 30</span></td>
+              <td>
+                <span class="channel-badge review">
+                  <svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M8 5v3l2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                  Review
+                </span>
+              </td>
+              <td><span class="action-text">Cycle review</span></td>
+              <td><span class="content-text">Which segments and messages produced conversations? Which buying windows had the strongest open-to-reply conversion? Refine the list, update message variants, and launch cycle 2 with what worked.</span></td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ─── 12-Week Roadmap ───────────────────────────────── -->
+    <div>
+      <div class="section-label">The Build</div>
+      <h2 class="section-title">12-Week Roadmap</h2>
+      <p class="section-desc">
+        From zero to a fully running outbound and Authority Engine system. Each phase has a clear output. No vague milestones.
+      </p>
+
+      <div class="roadmap-phases">
+
+        <div class="phase-card">
+          <div class="phase-header">
+            <span class="phase-weeks">Weeks 1–2</span>
+            <div class="phase-title">Research and Targeting</div>
+          </div>
+          <ul class="phase-items">
+            <li>Map full addressable market across all 5 buying window segments</li>
+            <li>Produce Tier 1 lead list — 12 accounts with confirmed Data Key evidence</li>
+            <li>Identify decision-maker contacts for each account</li>
+            <li>Verify all contacts are currently in role before loading</li>
+            <li>Load into HubSpot, Clay, and Apollo</li>
+          </ul>
+        </div>
+
+        <div class="phase-card">
+          <div class="phase-header">
+            <span class="phase-weeks">Weeks 3–4</span>
+            <div class="phase-title">Outreach Build</div>
+          </div>
+          <ul class="phase-items">
+            <li>Write 5 buying-window-specific outreach sequences (PSS score 85+)</li>
+            <li>Load sequences into SmartLead — campaigns created paused</li>
+            <li>LinkedIn connection requests begin for Tier 1 accounts</li>
+            <li>Run sending infrastructure deliverability check before activating</li>
+            <li>Review and activate campaigns after final quality pass</li>
+          </ul>
+        </div>
+
+        <div class="phase-card">
+          <div class="phase-header">
+            <span class="phase-weeks">Weeks 5–7</span>
+            <div class="phase-title">First Conversations</div>
+          </div>
+          <ul class="phase-items">
+            <li>Email outreach live across all 5 buying window segments</li>
+            <li>Monitor reply rates daily — target 3 to 5% per segment</li>
+            <li>Qualify responses and brief sales team before each call</li>
+            <li>First conversations expected by Week 6</li>
+            <li>Permissionless Value email deployed to top pharma segment on Day 12</li>
+          </ul>
+        </div>
+
+        <div class="phase-card">
+          <div class="phase-header">
+            <span class="phase-weeks">Weeks 8–9</span>
+            <div class="phase-title">Optimise</div>
+          </div>
+          <ul class="phase-items">
+            <li>Review which segments produce highest reply-to-conversation rate</li>
+            <li>Activate Tier 2 accounts using Tier 1 learnings</li>
+            <li>Authority Engine nurture begins for all non-ready contacts</li>
+            <li>Update message variants for underperforming segments</li>
+            <li>Retargeting ads live on LinkedIn for engaged non-converters</li>
+          </ul>
+        </div>
+
+        <div class="phase-card" style="grid-column: 1 / -1;">
+          <div class="phase-header">
+            <span class="phase-weeks">Weeks 10–12</span>
+            <div class="phase-title">Scale and Systemise</div>
+          </div>
+          <ul class="phase-items" style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px 32px;">
+            <li>Scale winning segments to full total addressable market</li>
+            <li>Authority Engine fully running — content, nurture, retargeting, scoring, alerts</li>
+            <li>End-of-quarter report: conversations generated, pipeline created, improvements for quarter 2</li>
+            <li>Referral engineering begins with highest Net Promoter Score existing accounts</li>
+            <li>All Business Travel News 100 wins documented as active referral triggers</li>
+            <li>Buying window intelligence system handed to Clarasight for self-service use</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ─── CTA ───────────────────────────────────────────── -->
+    <div class="cta-block">
+      <div class="cta-block-inner">
+        <p class="cta-eyebrow">Ready to move</p>
+        <h2 class="cta-title">
+          Book a 15-Minute Call with Jean
+        </h2>
+        <p class="cta-desc">
+          Walk through the buying window list, the 5 message variants, and what the first 30 days look like in practice. No deck. Just the work.
+        </p>
+        <a href="https://cal.com/jean-m-8f4kbr/15min" target="_blank" rel="noopener noreferrer" class="cta-button">
+          Book 15 Minutes
+        </a>
+        <p class="cta-sub">cal.com/jean-m-8f4kbr/15min</p>
+      </div>
+    </div>
+
+    <!-- ─── Footer ─────────────────────────────────────────── -->
+    <div class="footer">
+      <div class="footer-brand">
+        Strategy and GTM research by <strong>Jean Mundabi Fala</strong>, MDB Growth Capital
+      </div>
+      <div class="footer-confidential">
+        Confidential — prepared for Adam Braun, Clarasight
+      </div>
+    </div>
+
+  </div><!-- /page-wrapper -->
+
+</body>
+</html>

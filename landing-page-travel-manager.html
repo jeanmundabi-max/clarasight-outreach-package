@@ -1,0 +1,2108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clarasight — Trusted by 35+ Enterprise Travel Programmes — One Source of Truth for T&amp;E Analytics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --accent:      #514FEE;
+      --accent2:     #3a38d6;
+      --mint:        #A8FFE5;
+      --dark-bg:     #07061A;
+      --dark-bg2:    #18181E;
+      --light-bg:    #F7F7FF;
+      --text-dark:   #07061A;
+      --text-light:  #F7F7FF;
+      --text-muted:  #64748b;
+      --border:      #e2e8f0;
+      --border-dark: rgba(255,255,255,0.08);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 18px;
+      line-height: 1.65;
+      color: var(--text-dark);
+      background: #fff;
+      overflow-x: hidden;
+    }
+
+    /* ── BUYING WINDOW BANNER ─────────────────────────────── */
+    #buying-window-banner {
+      background: var(--dark-bg);
+      border-bottom: 1px solid var(--border-dark);
+      padding: 10px 0;
+      overflow: hidden;
+      position: relative;
+      z-index: 200;
+    }
+
+    .banner-track {
+      display: flex;
+      gap: 0;
+      animation: marquee-banner 38s linear infinite;
+      white-space: nowrap;
+    }
+
+    .banner-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 32px;
+      font-family: 'Space Grotesk', monospace;
+      font-size: 11.5px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: rgba(255,255,255,0.55);
+      text-transform: uppercase;
+    }
+
+    .banner-item .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--mint);
+      opacity: 0.7;
+      flex-shrink: 0;
+    }
+
+    .banner-label {
+      color: var(--mint);
+      font-weight: 700;
+    }
+
+    @keyframes marquee-banner {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ── STICKY NAV ───────────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(7, 6, 26, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-dark);
+      padding: 0 48px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .nav-logo-mark {
+      width: 34px;
+      height: 34px;
+      background: var(--accent);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-logo-mark svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .nav-logo-text {
+      font-size: 17px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: #fff; }
+
+    .nav-cta {
+      background: var(--accent);
+      color: #fff !important;
+      padding: 9px 20px;
+      border-radius: 8px;
+      font-weight: 600 !important;
+      font-size: 14px !important;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover { background: var(--accent2) !important; }
+
+    /* ── HERO ─────────────────────────────────────────────── */
+    #hero {
+      background: var(--dark-bg);
+      padding: 96px 48px 80px;
+      min-height: 88vh;
+      display: grid;
+      grid-template-columns: 1fr 480px;
+      gap: 64px;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 900px 600px at 20% 40%, rgba(81,79,238,0.12) 0%, transparent 70%),
+                  radial-gradient(ellipse 600px 400px at 85% 80%, rgba(168,255,229,0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-content { position: relative; z-index: 2; }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(81,79,238,0.18);
+      border: 1px solid rgba(81,79,238,0.35);
+      border-radius: 100px;
+      padding: 6px 14px;
+      margin-bottom: 28px;
+    }
+
+    .hero-eyebrow span {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--mint);
+      text-transform: uppercase;
+    }
+
+    .hero-eyebrow-dot {
+      width: 5px;
+      height: 5px;
+      background: var(--mint);
+      border-radius: 50%;
+    }
+
+    #hero h1 {
+      font-size: clamp(38px, 5vw, 62px);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: #fff;
+      margin-bottom: 24px;
+    }
+
+    #hero h1 em {
+      font-style: normal;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--mint) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: 18px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.65);
+      max-width: 560px;
+      margin-bottom: 40px;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      margin-bottom: 40px;
+      padding: 28px 0;
+      border-top: 1px solid var(--border-dark);
+      border-bottom: 1px solid var(--border-dark);
+    }
+
+    .stat-item {}
+
+    .stat-number {
+      font-size: 38px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: #fff;
+      line-height: 1;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .stat-number span { color: var(--mint); }
+
+    .stat-label {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      font-weight: 400;
+    }
+
+    .hero-ctas {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent);
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      letter-spacing: -0.01em;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-primary:hover { background: var(--accent2); transform: translateY(-1px); }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.7);
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .btn-secondary:hover { color: #fff; }
+
+    .hero-trust {
+      margin-top: 28px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      font-weight: 400;
+    }
+
+    /* Hero dashboard mockup */
+    .hero-dashboard {
+      position: relative;
+      z-index: 2;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 24px;
+      height: 420px;
+      overflow: hidden;
+    }
+
+    .dashboard-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .dashboard-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.8);
+      letter-spacing: 0.02em;
+    }
+
+    .dashboard-badge {
+      background: rgba(168,255,229,0.12);
+      border: 1px solid rgba(168,255,229,0.25);
+      color: var(--mint);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 100px;
+      letter-spacing: 0.04em;
+    }
+
+    .dashboard-metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .metric-card {
+      background: rgba(81,79,238,0.1);
+      border: 1px solid rgba(81,79,238,0.2);
+      border-radius: 10px;
+      padding: 14px;
+    }
+
+    .metric-card.mint {
+      background: rgba(168,255,229,0.07);
+      border-color: rgba(168,255,229,0.15);
+    }
+
+    .metric-value {
+      font-size: 24px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.02em;
+      margin-bottom: 2px;
+    }
+
+    .metric-label {
+      font-size: 11px;
+      color: rgba(255,255,255,0.45);
+      font-weight: 400;
+    }
+
+    .dashboard-bars {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .bar-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .bar-label {
+      font-size: 11px;
+      color: rgba(255,255,255,0.45);
+      width: 60px;
+      flex-shrink: 0;
+    }
+
+    .bar-track {
+      flex: 1;
+      height: 6px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 3px;
+      background: var(--accent);
+    }
+
+    .bar-fill.mint { background: var(--mint); }
+
+    .bar-pct {
+      font-size: 11px;
+      color: rgba(255,255,255,0.45);
+      width: 32px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .dashboard-sources {
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      gap: 8px;
+    }
+
+    .source-chip {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 4px 10px;
+      border-radius: 100px;
+      text-transform: uppercase;
+    }
+
+    .source-chip.active {
+      background: rgba(81,79,238,0.2);
+      border: 1px solid rgba(81,79,238,0.35);
+      color: rgba(255,255,255,0.7);
+    }
+
+    .source-chip.dim {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* ── PROOF MARQUEE ────────────────────────────────────── */
+    #proof-strip {
+      background: var(--dark-bg2);
+      border-top: 1px solid var(--border-dark);
+      border-bottom: 1px solid var(--border-dark);
+      padding: 18px 0;
+      overflow: hidden;
+    }
+
+    .marquee-track {
+      display: flex;
+      animation: marquee 28s linear infinite;
+      width: max-content;
+    }
+
+    .marquee-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 36px;
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+
+    .marquee-item .sep {
+      width: 4px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 50%;
+      opacity: 0.5;
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ── SECTIONS SHARED ──────────────────────────────────── */
+    section { padding: 96px 48px; }
+
+    .section-label {
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .section-label.light { color: var(--mint); }
+
+    h2 {
+      font-size: clamp(30px, 4vw, 48px);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    /* Reveal animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ── PAIN 01 ──────────────────────────────────────────── */
+    #pain-1 { background: var(--dark-bg2); }
+    #pain-1 h2 { color: #fff; margin-bottom: 52px; }
+
+    .pain-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .pain-card {
+      border-radius: 16px;
+      padding: 36px;
+    }
+
+    .pain-card-dark {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .pain-card-accent {
+      background: rgba(81,79,238,0.1);
+      border: 1px solid rgba(81,79,238,0.2);
+    }
+
+    .pain-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 18px;
+    }
+
+    .pain-quote {
+      font-size: 22px;
+      font-style: italic;
+      line-height: 1.45;
+      color: #fff;
+      margin-bottom: 20px;
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .pain-quote::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    .pain-body {
+      font-size: 16px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* ── PAIN 02 ──────────────────────────────────────────── */
+    #pain-2 { background: var(--light-bg); }
+    #pain-2 h2 { color: var(--text-dark); margin-bottom: 52px; }
+
+    .pain-grid-light {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .pain-card-light {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 36px;
+    }
+
+    .pain-label-light {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .pain-quote-light {
+      font-size: 20px;
+      font-style: italic;
+      line-height: 1.5;
+      color: var(--text-dark);
+      margin-bottom: 18px;
+      padding-left: 18px;
+      border-left: 3px solid var(--accent);
+    }
+
+    .pain-body-light {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+
+    /* ── OLD vs NEW ───────────────────────────────────────── */
+    #old-new { background: var(--dark-bg); }
+    #old-new h2 { color: #fff; }
+    #old-new .old-new-intro {
+      color: rgba(255,255,255,0.55);
+      font-size: 17px;
+      margin-bottom: 52px;
+      max-width: 560px;
+    }
+
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border-dark);
+    }
+
+    .comparison-table thead th {
+      padding: 18px 28px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-align: left;
+    }
+
+    .comparison-table thead .col-old {
+      background: rgba(255,255,255,0.04);
+      color: rgba(255,255,255,0.5);
+    }
+
+    .comparison-table thead .col-new {
+      background: rgba(81,79,238,0.15);
+      color: var(--mint);
+    }
+
+    .comparison-table tbody tr {
+      border-top: 1px solid var(--border-dark);
+    }
+
+    .comparison-table tbody tr:nth-child(even) {
+      background: rgba(255,255,255,0.015);
+    }
+
+    .comparison-table td {
+      padding: 22px 28px;
+      vertical-align: top;
+      width: 50%;
+      font-size: 15.5px;
+      line-height: 1.6;
+    }
+
+    .td-old { color: rgba(255,255,255,0.45); }
+    .td-new { color: rgba(255,255,255,0.8); }
+
+    .comparison-table td .icon {
+      display: inline-block;
+      margin-right: 8px;
+      font-size: 14px;
+    }
+
+    /* ── MECHANISM ────────────────────────────────────────── */
+    #mechanism { background: var(--light-bg); }
+    #mechanism h2 { color: var(--text-dark); margin-bottom: 52px; }
+
+    .steps-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .step-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 36px;
+      position: relative;
+    }
+
+    .step-number {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .step-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      color: var(--text-dark);
+      margin-bottom: 14px;
+    }
+
+    .step-card p {
+      font-size: 15.5px;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+
+    /* ── VSL ──────────────────────────────────────────────── */
+    #vsl { background: var(--dark-bg); }
+    #vsl h2 { color: #fff; margin-bottom: 40px; }
+
+    .vsl-placeholder {
+      max-width: 800px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      aspect-ratio: 16 / 9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .vsl-placeholder:hover {
+      border-color: rgba(81,79,238,0.4);
+      background: rgba(81,79,238,0.06);
+    }
+
+    .vsl-play {
+      width: 72px;
+      height: 72px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .vsl-play:hover { background: var(--accent2); transform: scale(1.05); }
+
+    .vsl-title {
+      font-size: 17px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.8);
+      text-align: center;
+      max-width: 480px;
+      line-height: 1.45;
+    }
+
+    .vsl-meta {
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+    }
+
+    /* ── TESTIMONIALS ─────────────────────────────────────── */
+    #testimonials { background: var(--light-bg); }
+    #testimonials h2 { margin-bottom: 52px; }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
+    }
+
+    .testimonial-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .testimonial-stars {
+      display: flex;
+      gap: 4px;
+    }
+
+    .star { color: #f59e0b; font-size: 16px; }
+
+    .testimonial-quote {
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--text-dark);
+      font-style: italic;
+      flex: 1;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    .author-avatar {
+      width: 42px;
+      height: 42px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .author-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 2px;
+    }
+
+    .author-title {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .testimonials-trust {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 14px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* ── VIDEO TESTIMONIALS ───────────────────────────────── */
+    .video-testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 40px;
+    }
+    @media (max-width: 768px) { .video-testi-grid { grid-template-columns: 1fr; } }
+
+    .video-testi-card {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .vt-thumb {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background: linear-gradient(135deg, #07061A 0%, #1a1960 55%, #07061A 100%);
+      border-radius: 14px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: filter 0.22s;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .vt-thumb:hover { filter: brightness(1.13); }
+    .vt-thumb:hover .vt-play { transform: translate(-50%, -50%) scale(1.09); }
+
+    .vt-initials {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -62%);
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.14);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 1px;
+    }
+
+    .vt-play {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60px;
+      height: 60px;
+      background: rgba(168,255,229,0.18);
+      border: 2px solid rgba(168,255,229,0.65);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      color: #fff;
+      transition: transform 0.22s;
+      backdrop-filter: blur(4px);
+    }
+
+    .vt-duration {
+      position: absolute;
+      bottom: 9px;
+      right: 11px;
+      font-size: 11px;
+      color: #fff;
+      background: rgba(0,0,0,0.52);
+      padding: 2px 7px;
+      border-radius: 4px;
+      letter-spacing: 0.4px;
+    }
+
+    .vt-name-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 7px 13px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.78);
+      background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 100%);
+      font-family: 'Space Grotesk', monospace;
+    }
+
+    .vt-quote {
+      font-style: italic;
+      font-size: 15px;
+      line-height: 1.67;
+      margin: 0;
+      color: var(--text-dark);
+    }
+
+    .vt-attr { display: flex; flex-direction: column; gap: 3px; }
+    .vt-attr strong { font-size: 14px; font-weight: 600; color: var(--text-dark); }
+    .vt-attr span { font-size: 13px; opacity: 0.6; }
+
+    /* ── QUALIFICATION ────────────────────────────────────── */
+    #qualification { background: var(--dark-bg); }
+    #qualification h2 { color: #fff; margin-bottom: 16px; }
+
+    .qual-intro {
+      font-size: 17px;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 52px;
+      max-width: 560px;
+    }
+
+    .qual-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .qual-card {
+      border-radius: 14px;
+      padding: 32px;
+    }
+
+    .qual-fit {
+      background: rgba(168,255,229,0.06);
+      border: 1px solid rgba(168,255,229,0.15);
+    }
+
+    .qual-nofit {
+      background: rgba(239,68,68,0.06);
+      border: 1px solid rgba(239,68,68,0.15);
+    }
+
+    .qual-icon {
+      font-size: 22px;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .qual-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .qual-card p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.55);
+    }
+
+    .qual-nofit h3 { color: rgba(255,200,200,0.9); }
+
+    /* ── REVENUE GAP ──────────────────────────────────────── */
+    #revenue-gap { background: var(--light-bg); }
+    #revenue-gap h2 { margin-bottom: 16px; }
+
+    .rev-intro {
+      color: var(--text-muted);
+      margin-bottom: 48px;
+      max-width: 520px;
+    }
+
+    .rev-table-wrap {
+      background: var(--dark-bg);
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--border-dark);
+      max-width: 900px;
+    }
+
+    .rev-table-header {
+      padding: 20px 32px;
+      background: rgba(81,79,238,0.15);
+      border-bottom: 1px solid var(--border-dark);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--mint);
+    }
+
+    .rev-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 18px 32px;
+      border-bottom: 1px solid var(--border-dark);
+      gap: 32px;
+    }
+
+    .rev-row:last-child { border-bottom: none; }
+
+    .rev-row.highlight {
+      background: rgba(168,255,229,0.04);
+    }
+
+    .rev-row.total {
+      background: rgba(81,79,238,0.12);
+    }
+
+    .rev-desc {
+      font-size: 15px;
+      color: rgba(255,255,255,0.65);
+      flex: 1;
+      line-height: 1.5;
+    }
+
+    .rev-val {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      text-align: right;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .rev-val.mint { color: var(--mint); }
+    .rev-val.accent { color: #a5a3ff; }
+
+    /* ── OFFER ────────────────────────────────────────────── */
+    #offer { background: var(--dark-bg); }
+    #offer h2 { color: #fff; margin-bottom: 52px; }
+
+    .offer-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .offer-card {
+      background: rgba(255,255,255,0.025);
+      border: 1px solid var(--border-dark);
+      border-radius: 16px;
+      padding: 32px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .offer-card:hover {
+      border-color: rgba(81,79,238,0.35);
+      background: rgba(81,79,238,0.06);
+    }
+
+    .offer-icon {
+      font-size: 28px;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .offer-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .offer-card p {
+      font-size: 15px;
+      line-height: 1.72;
+      color: rgba(255,255,255,0.55);
+    }
+
+    .offer-card p strong {
+      color: rgba(255,255,255,0.75);
+      font-weight: 600;
+    }
+
+    /* ── IMPLEMENTATION ───────────────────────────────────── */
+    #implementation { background: var(--light-bg); }
+    #implementation h2 { margin-bottom: 52px; }
+
+    .impl-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .impl-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+    }
+
+    .impl-week {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(81,79,238,0.08);
+      border: 1px solid rgba(81,79,238,0.2);
+      padding: 6px 14px;
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+      margin-bottom: 20px;
+    }
+
+    .impl-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+    }
+
+    .impl-card p {
+      font-size: 15.5px;
+      line-height: 1.72;
+      color: var(--text-muted);
+    }
+
+    /* ── FAQ ──────────────────────────────────────────────── */
+    #faq { background: var(--dark-bg); }
+    #faq h2 { color: #fff; margin-bottom: 52px; }
+
+    .faq-list {
+      max-width: 840px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .faq-item {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border-dark);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 22px 28px;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      cursor: pointer;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 17px;
+      font-weight: 600;
+      color: #fff;
+      transition: background 0.15s;
+    }
+
+    .faq-question:hover { background: rgba(255,255,255,0.03); }
+
+    .faq-icon {
+      width: 24px;
+      height: 24px;
+      background: rgba(81,79,238,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 16px;
+      color: var(--mint);
+      transition: transform 0.25s, background 0.2s;
+    }
+
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+      background: rgba(81,79,238,0.4);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .faq-item.open .faq-answer { max-height: 400px; }
+
+    .faq-answer-inner {
+      padding: 0 28px 24px;
+      font-size: 16px;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* ── GUARANTEE ────────────────────────────────────────── */
+    #guarantee { background: var(--light-bg); }
+    #guarantee h2 { margin-bottom: 40px; }
+
+    .guarantee-box {
+      background: var(--dark-bg);
+      border: 1px solid rgba(168,255,229,0.2);
+      border-radius: 20px;
+      padding: 48px;
+      max-width: 820px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .guarantee-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent) 0%, var(--mint) 100%);
+    }
+
+    .guarantee-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(168,255,229,0.1);
+      border: 1px solid rgba(168,255,229,0.25);
+      border-radius: 100px;
+      padding: 8px 18px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--mint);
+      margin-bottom: 24px;
+    }
+
+    .guarantee-text {
+      font-size: 17px;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 18px;
+    }
+
+    .guarantee-text strong { color: #fff; font-weight: 600; }
+
+    /* ── FINAL CTA ────────────────────────────────────────── */
+    #final-cta {
+      background: var(--dark-bg);
+      padding: 120px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #final-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 800px 500px at 50% 50%, rgba(81,79,238,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-inner { position: relative; z-index: 2; max-width: 700px; margin: 0 auto; }
+
+    #final-cta h2 {
+      font-size: clamp(32px, 4.5vw, 52px);
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    #final-cta h2 em {
+      font-style: normal;
+      color: var(--mint);
+    }
+
+    .cta-sub {
+      font-size: 18px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 44px;
+      line-height: 1.65;
+    }
+
+    .cta-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .btn-cta-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--accent);
+      color: #fff;
+      padding: 18px 40px;
+      border-radius: 12px;
+      font-size: 18px;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: -0.01em;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-cta-primary:hover { background: var(--accent2); transform: translateY(-2px); }
+
+    .cta-note {
+      font-size: 14px;
+      color: rgba(255,255,255,0.4);
+      font-weight: 400;
+    }
+
+    /* ── FOOTER ───────────────────────────────────────────── */
+    footer {
+      background: var(--dark-bg);
+      border-top: 1px solid var(--border-dark);
+      padding: 28px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: rgba(255,255,255,0.3);
+      line-height: 1.6;
+    }
+
+    .footer-attr {
+      font-size: 11.5px;
+      font-family: 'Space Grotesk', monospace;
+      color: rgba(255,255,255,0.2);
+      letter-spacing: 0.02em;
+      max-width: 420px;
+      text-align: right;
+      line-height: 1.6;
+    }
+
+    /* ── RESPONSIVE ───────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      #hero {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        padding: 72px 32px 64px;
+      }
+
+      .hero-dashboard { display: none; }
+
+      .steps-row,
+      .offer-grid,
+      .impl-steps,
+      .testimonials-grid { grid-template-columns: 1fr; }
+
+      .pain-grid,
+      .pain-grid-light,
+      .qual-grid { grid-template-columns: 1fr; }
+
+      section { padding: 72px 32px; }
+
+      nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      footer { flex-direction: column; gap: 12px; text-align: center; }
+      .footer-attr { text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── BUYING WINDOW BANNER ───────────────────────────── -->
+  <div id="buying-window-banner" aria-label="Who lands here">
+    <div class="banner-track">
+      <span class="banner-item">
+        <span class="dot"></span>
+        <span class="banner-label">WHO LANDS HERE</span>
+      </span>
+      <span class="banner-item">New travel programme manager just joined — benefits review starts immediately</span>
+      <span class="banner-item"><span class="dot"></span></span>
+      <span class="banner-item">CSRD Scope 3 filing due Q1 — carbon reporting deadline approaching</span>
+      <span class="banner-item"><span class="dot"></span></span>
+      <span class="banner-item">Post-acquisition consolidation underway — two TMCs, two data models, one mess</span>
+      <span class="banner-item"><span class="dot"></span></span>
+      <span class="banner-item">Pharma HCP Sunshine Act report due March 31 — compliance deadline in six weeks</span>
+      <span class="banner-item"><span class="dot"></span></span>
+      <span class="banner-item">Hotel programme renewal in Q4 — negotiating without verified data</span>
+      <span class="banner-item">
+        <span class="dot"></span>
+        <span class="banner-label">WHO LANDS HERE</span>
+      </span>
+      <span class="banner-item">New travel programme manager just joined — benefits review starts immediately</span>
+      <span class="banner-item"><span class="dot"></span></span>
+      <span class="banner-item">CSRD Scope 3 filing due Q1 — carbon reporting deadline approaching</span>
+      <span class="banner-item"><span class="dot"></span></span>
+      <span class="banner-item">Post-acquisition consolidation underway — two TMCs, two data models, one mess</span>
+      <span class="banner-item"><span class="dot"></span></span>
+      <span class="banner-item">Pharma HCP Sunshine Act report due March 31 — compliance deadline in six weeks</span>
+      <span class="banner-item"><span class="dot"></span></span>
+      <span class="banner-item">Hotel programme renewal in Q4 — negotiating without verified data</span>
+    </div>
+  </div>
+
+  <!-- ── NAV ────────────────────────────────────────────── -->
+  <nav>
+    <a href="#hero" class="nav-logo" aria-label="Clarasight home">
+      <div class="nav-logo-mark">
+        <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="9" cy="9" r="7" stroke="#A8FFE5" stroke-width="1.5"/>
+          <circle cx="9" cy="9" r="3" fill="#A8FFE5"/>
+        </svg>
+      </div>
+      <span class="nav-logo-text">Clarasight</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#mechanism">Platform</a></li>
+      <li><a href="#testimonials">Customers</a></li>
+      <li><a href="#revenue-gap">The Case</a></li>
+      <li><a href="#faq">FAQs</a></li>
+      <li><a href="#final-cta" class="nav-cta">Request a Demo</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── SECTION 1: HERO ────────────────────────────────── -->
+  <section id="hero">
+    <div class="hero-content">
+      <div class="hero-eyebrow reveal">
+        <span class="hero-eyebrow-dot"></span>
+        <span>For Corporate Travel Managers at enterprise T&amp;E programmes</span>
+      </div>
+      <h1 class="reveal reveal-delay-1">
+        You have travel data<br/>
+        in <em>three places.</em><br/>
+        None of them agree.
+      </h1>
+      <p class="hero-sub reveal reveal-delay-2">
+        Stop spending a week building the report before you can use it. With Clarasight, every TMC feed, expense platform, and card statement flows into one live view — so you walk into the hotel renewal with a number you can defend, file your Scope 3 without six weeks of manual work, and answer the CFO the same day they ask.
+      </p>
+      <div class="hero-stats reveal reveal-delay-3">
+        <div class="stat-item">
+          <span class="stat-number">35<span>+</span></span>
+          <span class="stat-label">enterprise programmes<br/>running on Clarasight</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">66<span>%</span></span>
+          <span class="stat-label">faster deployment<br/>vs legacy analytics</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">$250<span>K+</span></span>
+          <span class="stat-label">average hotel spend<br/>recovered in year one</span>
+        </div>
+      </div>
+      <div class="hero-ctas reveal reveal-delay-4">
+        <a href="#final-cta" class="btn-primary">Request a Demo &rarr;</a>
+        <a href="#vsl" class="btn-secondary">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.3"/>
+            <polygon points="6.5,5 11.5,8 6.5,11" fill="currentColor"/>
+          </svg>
+          Watch: How Clarasight unifies a multi-TMC programme (4 min)
+        </a>
+      </div>
+      <p class="hero-trust reveal reveal-delay-4">Trusted by travel teams at Bain, Big Four firms, and BTN 100 class programmes.</p>
+    </div>
+
+    <div class="hero-dashboard reveal reveal-delay-2">
+      <div class="dashboard-header">
+        <span class="dashboard-title">T&amp;E UNIFIED DASHBOARD</span>
+        <span class="dashboard-badge">LIVE</span>
+      </div>
+      <div class="dashboard-metrics">
+        <div class="metric-card">
+          <div class="metric-value">$5.2B</div>
+          <div class="metric-label">Total T&amp;E managed</div>
+        </div>
+        <div class="metric-card mint">
+          <div class="metric-value">99%</div>
+          <div class="metric-label">Reporting time saved</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value">100%</div>
+          <div class="metric-label">Spend captured</div>
+        </div>
+        <div class="metric-card mint">
+          <div class="metric-value">4 TMC</div>
+          <div class="metric-label">Sources unified</div>
+        </div>
+      </div>
+      <div class="dashboard-bars">
+        <div class="bar-row">
+          <span class="bar-label">Air</span>
+          <div class="bar-track"><div class="bar-fill" style="width:82%"></div></div>
+          <span class="bar-pct">82%</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">Hotel</span>
+          <div class="bar-track"><div class="bar-fill mint" style="width:63%"></div></div>
+          <span class="bar-pct">63%</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">Ground</span>
+          <div class="bar-track"><div class="bar-fill" style="width:29%"></div></div>
+          <span class="bar-pct">29%</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">Card</span>
+          <div class="bar-track"><div class="bar-fill mint" style="width:46%"></div></div>
+          <span class="bar-pct">46%</span>
+        </div>
+      </div>
+      <div class="dashboard-sources">
+        <span class="source-chip active">BCD</span>
+        <span class="source-chip active">Amex GBT</span>
+        <span class="source-chip active">FCM</span>
+        <span class="source-chip active">Concur</span>
+        <span class="source-chip dim">CTM</span>
+      </div>
+    </div>
+  </section>
+
+<section id="vsl">
+    <div class="section-inner">
+      <span class="section-label reveal">See it in action</span>
+      <h2 class="reveal reveal-delay-1">Watch: How Clarasight unifies a multi-TMC programme in 60 minutes.</h2>
+      <div class="vsl-placeholder reveal reveal-delay-2">
+        <div class="vsl-play">
+          <svg viewBox="0 0 26 26" fill="none">
+            <polygon points="9,5 21,13 9,21" fill="#fff"/>
+          </svg>
+        </div>
+        <p class="vsl-title">How Clarasight builds a canonical T&amp;E model for a global travel programme — including Scope 3 reporting and hotel negotiation data</p>
+        <p class="vsl-meta">VIDEO_URL_GOES_HERE &middot; 4 minutes</p>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ── SECTION 2: PROOF MARQUEE ──────────────────────── -->
+  <section id="proof-strip" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="marquee-item">35+ enterprise travel programmes <span class="sep"></span></span>
+      <span class="marquee-item">Bain &middot; Big Four &middot; Fortune 500 clients <span class="sep"></span></span>
+      <span class="marquee-item">$5B+ in T&amp;E spend unified <span class="sep"></span></span>
+      <span class="marquee-item">66% faster deployment with AI agents <span class="sep"></span></span>
+      <span class="marquee-item">Multi-TMC &middot; Expense &middot; Card — all sources <span class="sep"></span></span>
+      <span class="marquee-item">GBTA member reference clients <span class="sep"></span></span>
+      <span class="marquee-item">Scope 3 Category 6 reporting built-in <span class="sep"></span></span>
+      <span class="marquee-item">BTN 100 class programmes <span class="sep"></span></span>
+      <span class="marquee-item">35+ enterprise travel programmes <span class="sep"></span></span>
+      <span class="marquee-item">Bain &middot; Big Four &middot; Fortune 500 clients <span class="sep"></span></span>
+      <span class="marquee-item">$5B+ in T&amp;E spend unified <span class="sep"></span></span>
+      <span class="marquee-item">66% faster deployment with AI agents <span class="sep"></span></span>
+      <span class="marquee-item">Multi-TMC &middot; Expense &middot; Card — all sources <span class="sep"></span></span>
+      <span class="marquee-item">GBTA member reference clients <span class="sep"></span></span>
+      <span class="marquee-item">Scope 3 Category 6 reporting built-in <span class="sep"></span></span>
+      <span class="marquee-item">BTN 100 class programmes <span class="sep"></span></span>
+    </div>
+  </section>
+
+  <!-- ── SECTION 3: PAIN 01 ─────────────────────────────── -->
+  <section id="pain-1">
+    <div class="section-inner">
+      <span class="section-label light reveal">The data problem</span>
+      <h2 class="reveal reveal-delay-1">Your TMC gives you a report.<br/>It is not your T&amp;E data.</h2>
+      <div class="pain-grid">
+        <div class="pain-card pain-card-accent reveal reveal-delay-2">
+          <div class="pain-label">Pain 01 — The TMC Blind Spot</div>
+          <blockquote class="pain-quote">
+            "My TMC reporting only shows what goes through the TMC. We have 15 to 20% of spend on cards that never appears anywhere."
+          </blockquote>
+          <p class="pain-body">
+            Managed travel programmes typically capture 60 to 85% of actual T&amp;E spend. The rest — direct bookings, card spend, expense reimbursements, ground transport — never appears in your TMC report. You present to the CFO with data that is structurally incomplete. You do not know exactly how much is missing, but you know it is missing.
+          </p>
+        </div>
+        <div class="pain-card pain-card-dark reveal reveal-delay-3">
+          <div class="pain-label">Pain 02 — The Three Sources Problem</div>
+          <blockquote class="pain-quote">
+            "We have data in three places and no single source of truth. Finance has one number. Travel has another. When the CFO asks, we spend a week reconciling before we can answer."
+          </blockquote>
+          <p class="pain-body">
+            Most enterprise travel programmes maintain parallel data streams: TMC reporting, expense platform exports, corporate card statements. Each uses different supplier names, different date conventions, different cost centres. Reconciling them before every board report is a quarterly sprint that should not need to happen.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 4: PAIN 02 ─────────────────────────────── -->
+  <section id="pain-2">
+    <div class="section-inner">
+      <span class="section-label reveal">The reporting trap</span>
+      <h2 class="reveal reveal-delay-1">"I spend more time building the report<br/>than using it."</h2>
+      <div class="pain-grid-light">
+        <div class="pain-card-light reveal reveal-delay-2">
+          <div class="pain-label-light">Pain 03 — The Build vs Use Problem</div>
+          <blockquote class="pain-quote-light">
+            "I spend more time building the report than using it. By the time the numbers are right, the meeting is tomorrow and there is no time to actually do analysis."
+          </blockquote>
+          <p class="pain-body-light">
+            The monthly travel report at most enterprise programmes takes 3 to 8 hours to produce. TMC data export, expense platform extract, card feed, Excel spreadsheet, formatting. Every month. The output is a lagging indicator — it shows where spend went, not where it is going. Analysis is what happens if there is time left.
+          </p>
+        </div>
+        <div class="pain-card-light reveal reveal-delay-3">
+          <div class="pain-label-light">Pain 04 — The Negotiation Gap</div>
+          <blockquote class="pain-quote-light">
+            "We walked into the hotel renewal without a defensible number. We knew roughly what we spent, but we could not prove it at the property level. They knew it too."
+          </blockquote>
+          <p class="pain-body-light">
+            Hotel suppliers negotiate against programme data. They know their numbers with precision. If you cannot produce a verified breakdown of room nights by property, rate tier, and season — they assume you do not have data. And they will be right. On a $50M programme, that gap is worth $750,000 to $2.5M in recoverable hotel savings per renewal cycle.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 5: OLD WAY vs NEW WAY ──────────────────── -->
+  <section id="old-new">
+    <div class="section-inner">
+      <span class="section-label reveal">The shift</span>
+      <h2 class="reveal reveal-delay-1">What travel teams tried.<br/>What changed when they stopped.</h2>
+      <p class="old-new-intro reveal reveal-delay-2">Most programmes tried SAP Concur reporting. Or Tableau built by the BI team. Or a quarterly spreadsheet sprint. The approach changed every year. The problem did not. Here is what that experience sounds like — and what it looks like on the other side.</p>
+      <table class="comparison-table reveal reveal-delay-3">
+        <thead>
+          <tr>
+            <th class="col-old">❌ The Old Way</th>
+            <th class="col-new">✅ The New Way</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-old"><span class="icon">❌</span>We were trying to get defensible hotel rates in the annual supplier renewal. But SAP Concur reporting only showed what went through the TMC — 15 to 25% of actual spend was invisible. When Marriott sat across the table with their data, we had our estimate. They had our programme. By the time we understood the gap, the decision had already been made. The truth is I spent more time apologising for the number than negotiating with it.</td>
+            <td class="td-new"><span class="icon">✅</span>Now property-level room night data is already reconciled before the supplier meeting happens. We went into the last renewal with our number — not theirs. Rate concessions came in the first session. The conversation changed from defending our estimate to deciding which properties to consolidate.</td>
+          </tr>
+          <tr>
+            <td class="td-old"><span class="icon">❌</span>We were trying to build a unified view of T&amp;E spend so Finance and Travel could work from the same number. The BI team built a Tableau dashboard. It took six months and two analysts. When our primary TMC changed their export format, the whole model broke. The team went back to Excel. When the CFO requested a quarterly spend review at 48 hours' notice, I only had the version I had filed three weeks before. That meant I spent more time explaining why the numbers might have moved than presenting any useful analysis.</td>
+            <td class="td-new"><span class="icon">✅</span>Now every TMC feed, expense platform, and card statement connects via API — no IT project, no build time. When our TMC updated their data format last quarter, nothing broke. It just updated. The conversation changed from version-control arguments to a single number Finance and Travel both trust.</td>
+          </tr>
+          <tr>
+            <td class="td-old"><span class="icon">❌</span>We were trying to produce Scope 3 Category 6 emissions data for the CSRD filing. The sustainability team gave us six weeks. We had data in three TMCs and two expense tools — none of it in the same format, none of it pre-classified to the ISO standard. We filed an estimate and hoped the auditors did not push back. The part nobody says out loud is that I was more worried about what we had filed than whether it was actually right. I spent more time managing the audit risk than managing the programme.</td>
+            <td class="td-new"><span class="icon">✅</span>Now every trip is tagged to its correct GBTA category and Scope 3 Category 6 classification the moment it enters the system. We filed our CSRD disclosure two weeks early. The sustainability team asked for the data. I sent a link. The conversation changed from six-week reporting sprint to a 10-minute data export.</td>
+          </tr>
+          <tr>
+            <td class="td-old"><span class="icon">❌</span>We were trying to demonstrate programme value to the CFO at the annual budget review. I had engagement metrics and travel policy compliance rates. Finance wanted a number — what the programme had delivered, in dollars, against what it cost. I had nothing that answered that directly. When the CFO asked whether we could cut 20% of the travel budget without affecting revenue, I only had assumptions. By the time we saw the issue, the decision had already been made. Two trips that drove 40% of new business nearly got cut because I could not show the link.</td>
+            <td class="td-new"><span class="icon">✅</span>Now trip-level data maps to cost centre, business unit, and revenue outcome. The CFO asked the same question last quarter. The answer was on screen in the meeting — trip types by revenue contribution, spend by supplier category, benchmark against prior year. The conversation changed from defending the budget to deciding where to invest it.</td>
+          </tr>
+          <tr>
+            <td class="td-old"><span class="icon">❌</span>We were trying to get ahead of a post-merger programme consolidation — two legacy TMCs, three expense tools, four corporate card programmes, none of them talking to each other. The Head of Procurement wanted one number within 90 days of close. We pulled every export we could find and built a reconciliation model in Excel. It took three weeks and still had a $1.2M discrepancy we could not trace. By the time we had a version everyone agreed on, the 90-day window had passed and the new CHRO had already formed an opinion about how well travel was being managed.</td>
+            <td class="td-new"><span class="icon">✅</span>Now a unified data model surfaces within days of connecting the sources — not weeks of manual reconciliation. Named leakage by supplier, booking channel, and cost centre is already in the report before Procurement asks. The conversation changed from chasing a number that closed the gap to showing leadership exactly where the consolidation savings are and which suppliers to renegotiate first.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ── SECTION 6: MECHANISM ───────────────────────────── -->
+  <section id="mechanism">
+    <div class="section-inner">
+      <span class="section-label reveal">How Clarasight works</span>
+      <h2 class="reveal reveal-delay-1">How Clarasight works: three steps to one source of truth.</h2>
+      <div class="steps-row">
+        <div class="step-card reveal reveal-delay-2">
+          <span class="step-number">Step 01</span>
+          <h3>Your TMC, expense platform, and card feed all connect</h3>
+          <p>Every source — BCD, Amex GBT, FCM, CTM, Concur, corporate card — connects via API. No IT tickets. No custom build work. By end of week two, you are looking at data you have never been able to see together before. The 15 to 25% of spend that was invisible in your TMC report is now in the same view as everything else.</p>
+        </div>
+        <div class="step-card reveal reveal-delay-3">
+          <span class="step-number">Step 02</span>
+          <h3>Every transaction is cleaned and classified automatically</h3>
+          <p>Marriott appears as Marriott — not 47 different billing variants. Every trip is tagged to its correct cost centre, GBTA category, and Scope 3 Category 6 classification. Pharma programmes get every healthcare professional expense flagged for Sunshine Act reporting. You stop spending time fixing data and start using it.</p>
+        </div>
+        <div class="step-card reveal reveal-delay-4">
+          <span class="step-number">Step 03</span>
+          <h3>One number. Every stakeholder. No reconciliation.</h3>
+          <p>You walk into the CFO meeting with the same number the finance team has. The sustainability team files Scope 3 without a six-week sprint. The hotel renewal starts with your property-level room night data on the table — not your supplier's estimate of what you spent. No version control. No chasing exports. The number is already there when you open it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 7: VSL ─────────────────────────────────── -->
+  
+
+  <!-- ── SECTION 8: TESTIMONIALS ────────────────────────── -->
+  <section id="testimonials">
+    <div class="section-inner">
+      <span class="section-label reveal">What travel managers say</span>
+      <h2 class="reveal reveal-delay-1">When the data is right,<br/>the decisions make themselves.</h2>
+      <div class="video-testi-grid reveal">
+
+        <!-- Testimonial 1 — Mia Andersson, Head of Global Travel, Bain -->
+        <div class="video-testi-card">
+          <div class="vt-thumb">
+            <div class="vt-initials">MA</div>
+            <div class="vt-play">&#9654;</div>
+            <span class="vt-duration">1:48</span>
+            <div class="vt-name-bar">Mia Andersson &mdash; Head of Global Travel, Bain</div>
+          </div>
+          <p class="vt-quote">"I walked into the hotel renewal with one verified number. The CFO had no follow-up questions. I had not been in that position in three years of managing the programme."</p>
+          <div class="vt-attr">
+            <strong>Mia Andersson</strong>
+            <span>Head of Global Travel &mdash; Bain &amp; Company</span>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 — Head of Travel, Big Four Firm (CSRD) -->
+        <div class="video-testi-card">
+          <div class="vt-thumb">
+            <div class="vt-initials">RT</div>
+            <div class="vt-play">&#9654;</div>
+            <span class="vt-duration">2:11</span>
+            <div class="vt-name-bar">Global Travel Director &mdash; Big Four Professional Services</div>
+          </div>
+          <p class="vt-quote">"We filed our CSRD disclosure two weeks early. The sustainability team asked me for the Scope 3 data. I sent a link. That was the whole conversation. We had never been able to do that before."</p>
+          <div class="vt-attr">
+            <strong>Global Travel Director</strong>
+            <span>Big Four Professional Services Firm &mdash; FTSE 100</span>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 — Corporate Travel Director, post-acquisition tech company -->
+        <div class="video-testi-card">
+          <div class="vt-thumb">
+            <div class="vt-initials">JC</div>
+            <div class="vt-play">&#9654;</div>
+            <span class="vt-duration">1:55</span>
+            <div class="vt-name-bar">Corporate Travel Director &mdash; Global Technology Enterprise</div>
+          </div>
+          <p class="vt-quote">"We had three TMCs and two expense platforms after the acquisition. I stopped spending the first week of every quarter reconciling. That time is mine now. The number is there when I open it."</p>
+          <div class="vt-attr">
+            <strong>Corporate Travel Director</strong>
+            <span>Global Technology Enterprise &mdash; BTN 100 Programme</span>
+          </div>
+        </div>
+
+      </div>
+      <p class="testimonials-trust reveal reveal-delay-4">Clarasight clients include Bain, Big Four professional services firms, and BTN 100 class enterprise programmes.</p>
+    </div>
+  </section>
+
+  <!-- ── SECTION 9: QUALIFICATION ───────────────────────── -->
+  <section id="qualification">
+    <div class="section-inner">
+      <span class="section-label reveal">Is this right for you?</span>
+      <h2 class="reveal reveal-delay-1">Three travel programme profiles where Clarasight delivers.<br/>One where it does not.</h2>
+      <p class="qual-intro reveal reveal-delay-2">Not every travel programme is the right fit for Clarasight. Here is how to tell which side of the line you are on.</p>
+      <div class="qual-grid">
+        <div class="qual-card qual-fit reveal reveal-delay-2">
+          <span class="qual-icon">&#10003;</span>
+          <h3>The Multi-Source Programme</h3>
+          <p>You have a TMC plus expense data plus card spend. You know some of your T&amp;E is not captured in your TMC report. Your spend reconciliation is a manual quarterly process. You present to the CFO with a number you cannot fully defend.</p>
+        </div>
+        <div class="qual-card qual-fit reveal reveal-delay-3">
+          <span class="qual-icon">&#10003;</span>
+          <h3>The CSRD Scope 3 Reporter</h3>
+          <p>You have a filing obligation or internal commitment to Scope 3 Category 6 reporting. Your current process is manual, stale, or based on estimated spend data. You need a defensible, auditable methodology — not an approximation.</p>
+        </div>
+        <div class="qual-card qual-fit reveal reveal-delay-3">
+          <span class="qual-icon">&#10003;</span>
+          <h3>The Hotel Negotiation Cycle</h3>
+          <p>Your hotel programme renewal is coming up. You want to walk in with verified room night data at the property level, rate compliance reporting, and an alternative supplier list built from your actual programme spend — not their numbers.</p>
+        </div>
+        <div class="qual-card qual-nofit reveal reveal-delay-4">
+          <span class="qual-icon">&#10007;</span>
+          <h3>The Sub-$10M T&amp;E Programme</h3>
+          <p>Clarasight's enterprise model is built for programmes where data complexity justifies the investment. Under $10M in managed T&amp;E spend, the return on investment case is harder to make. Worth a conversation — the right fit matters to both sides.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 10: REVENUE GAP ────────────────────────── -->
+  <section id="revenue-gap">
+    <div class="section-inner">
+      <span class="section-label reveal">The cost of fragmented data</span>
+      <h2 class="reveal reveal-delay-1">The maths every travel director runs once.</h2>
+      <p class="rev-intro reveal reveal-delay-2">On a $50M managed T&amp;E programme, fragmented data is not a minor inconvenience. It is a quantifiable revenue gap. Here is the calculation.</p>
+      <div class="rev-table-wrap reveal reveal-delay-3">
+        <div class="rev-table-header">ILLUSTRATIVE $50M PROGRAMME &mdash; ANNUAL COST OF FRAGMENTED DATA</div>
+        <div class="rev-row">
+          <span class="rev-desc">Annual T&amp;E spend (illustrative: $50M programme)</span>
+          <span class="rev-val">$50,000,000</span>
+        </div>
+        <div class="rev-row">
+          <span class="rev-desc">Untracked spend — managed programmes average 15 to 25% leakage outside the TMC</span>
+          <span class="rev-val">$7.5M to $12.5M</span>
+        </div>
+        <div class="rev-row highlight">
+          <span class="rev-desc">Hotel savings missed — no property-level rate compliance data means no negotiating power</span>
+          <span class="rev-val mint">$750K to $2.5M</span>
+        </div>
+        <div class="rev-row">
+          <span class="rev-desc">Supplier negotiating power lost without verified room night data by property</span>
+          <span class="rev-val">3 to 8% on hotel renewal</span>
+        </div>
+        <div class="rev-row">
+          <span class="rev-desc">Time spent on manual reconciliation per year — 8 hours per month, 12 months</span>
+          <span class="rev-val">96 hours of programme manager time</span>
+        </div>
+        <div class="rev-row">
+          <span class="rev-desc">CSRD Scope 3 reporting error risk — estimated, unverified data in a mandatory disclosure</span>
+          <span class="rev-val">Regulatory exposure not quantifiable without data</span>
+        </div>
+        <div class="rev-row">
+          <span class="rev-desc">Clarasight annual contract (proxy for $50M programme)</span>
+          <span class="rev-val accent">$80,000 to $200,000</span>
+        </div>
+        <div class="rev-row total">
+          <span class="rev-desc"><strong style="color:#fff">Return on investment at 5% hotel savings improvement alone</strong></span>
+          <span class="rev-val mint">3.75x to 6.25x</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 11: OFFER ───────────────────────────────── -->
+  <section id="offer">
+    <div class="section-inner">
+      <span class="section-label reveal">What you get</span>
+      <h2 class="reveal reveal-delay-1">Everything included with Clarasight.</h2>
+      <div class="offer-grid">
+        <div class="offer-card reveal reveal-delay-2">
+          <span class="offer-icon">&#128279;</span>
+          <h3>One Unified T&amp;E View</h3>
+          <p>Every source — TMC, expense, card, direct booking — combined into a single, auditable data layer. No manual reconciliation. No quarterly sprint before the board meeting. <strong>Without this: you present to the CFO with data you cannot fully defend.</strong></p>
+        </div>
+        <div class="offer-card reveal reveal-delay-2">
+          <span class="offer-icon">&#128202;</span>
+          <h3>Live Programme Dashboard</h3>
+          <p>One view for travel, finance, and sustainability. Spend by category, supplier, cost centre, and region. Policy compliance rate. Rate variance from negotiated. Hotel nights by property. <strong>Without this: three stakeholders produce three different numbers from three different exports. No one is right.</strong></p>
+        </div>
+        <div class="offer-card reveal reveal-delay-3">
+          <span class="offer-icon">&#127758;</span>
+          <h3>Scope 3 Category 6 Reporting</h3>
+          <p>ISO-aligned emissions calculation per transaction. CSRD-ready output format. Auditable methodology per travel event. <strong>Without this: your sustainability team estimates from spend data, applies average emission factors, and files a number they cannot defend in a carbon audit.</strong></p>
+        </div>
+        <div class="offer-card reveal reveal-delay-3">
+          <span class="offer-icon">&#9877;</span>
+          <h3>HCP Sunshine Act Compliance</h3>
+          <p>Pharma-specific flagging of healthcare professional spend. Automatic classification against Sunshine Act thresholds. Audit-ready exports by deadline. <strong>Without this: your legal team manually reviews every expense report before filing. This takes weeks and misses edge cases.</strong></p>
+        </div>
+        <div class="offer-card reveal reveal-delay-4">
+          <span class="offer-icon">&#127968;</span>
+          <h3>Hotel Negotiation Intelligence</h3>
+          <p>Property-level room night data, rate compliance reporting, alternative supplier benchmarking. Walk into every renewal with data your hotel partners cannot dispute. <strong>Without this: you negotiate against your supplier's numbers, not your own.</strong></p>
+        </div>
+        <div class="offer-card reveal reveal-delay-4">
+          <span class="offer-icon">&#128268;</span>
+          <h3>Multi-TMC Architecture</h3>
+          <p>Works with BCD, Amex GBT, FCM, CTM simultaneously. Post-acquisition programmes with two or more TMCs get a single unified view immediately. <strong>Without this: you wait for a TMC migration that takes 18 months and costs more than fixing the data problem would have.</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 12: IMPLEMENTATION ────────────────────── -->
+  <section id="implementation">
+    <div class="section-inner">
+      <span class="section-label reveal">How it rolls out</span>
+      <h2 class="reveal reveal-delay-1">Live in weeks. Not months.</h2>
+      <div class="impl-steps">
+        <div class="impl-card reveal reveal-delay-2">
+          <span class="impl-week">Weeks 1 to 2</span>
+          <h3>API connections and data mapping</h3>
+          <p>Clarasight connects to your TMC feed, expense platform API, and card data source. AI agents map supplier names, cost centre codes, and category taxonomies to your programme structure. No IT tickets. No custom development. Your data is already flowing by end of week two.</p>
+        </div>
+        <div class="impl-card reveal reveal-delay-3">
+          <span class="impl-week">Weeks 3 to 4</span>
+          <h3>Dashboard configuration and stakeholder setup</h3>
+          <p>Travel director dashboard, finance view, sustainability reporting, and (for pharma programmes) HCP compliance output — all configured to your organisation's structure. Stakeholder training: 60 minutes per user. Your team is operational before the end of month one.</p>
+        </div>
+        <div class="impl-card reveal reveal-delay-4">
+          <span class="impl-week">Day 90</span>
+          <h3>First programme review</h3>
+          <p>You receive a verified data set for your first quarter on Clarasight. Property-level hotel data. Scope 3 Category 6 actuals. Policy compliance rate. Unmanaged spend identification. The first renewal cycle after Day 90 is when the return on investment becomes quantifiable.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 13: FAQ ────────────────────────────────── -->
+  <section id="faq">
+    <div class="section-inner">
+      <span class="section-label reveal">Common questions</span>
+      <h2 class="reveal reveal-delay-1">The objections travel managers raise.<br/>Honest answers.</h2>
+      <div class="faq-list">
+
+        <div class="faq-item reveal reveal-delay-2">
+          <button class="faq-question" aria-expanded="false">
+            Our TMC already gives us reporting. Why do we need Clarasight?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Your TMC gives you managed spend reporting. It captures 60 to 85% of your actual T&amp;E — the portion that flows through your TMC booking channel. The remaining 15 to 40% — direct bookings, corporate card spend, expense reimbursements, ground transport — never appears in your TMC report. Clarasight ingests all of it. You get the complete picture, not just the part your TMC can see.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal reveal-delay-2">
+          <button class="faq-question" aria-expanded="false">
+            We built a dashboard in Tableau and PowerBI already.
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              A dashboard built in Tableau or PowerBI without a T&amp;E-specific data model is only as good as its source data — which means it inherits all the fragmentation and manual reconciliation of your current setup. Every time your TMC changes its export format, it breaks. Every month, someone rebuilds the supplier normalisation mapping. Clarasight handles source format changes automatically and ships with Scope 3 Category 6, GBTA category taxonomy, and HCP classification already built in.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal reveal-delay-3">
+          <button class="faq-question" aria-expanded="false">
+            Implementation will require our IT team.
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Clarasight deploys via API, with no IT ticket required for standard connections — BCD, Amex GBT, FCM, Concur, Expensify. Deployment runs 66% faster than traditional analytics implementations because there is no custom integration work. The AI agents handle data mapping automatically. Where IT involvement is needed (non-standard data sources or on-premise systems), Clarasight provides a detailed technical specification that typically requires less than one sprint from an internal team.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal reveal-delay-3">
+          <button class="faq-question" aria-expanded="false">
+            We are happy with what we have.
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              That is a valid position. The question worth asking is: when did you last walk into a hotel renewal with property-level room night data and rate compliance reporting? If the answer is "never" or "we built it manually in Excel," there is a quantifiable number attached to that gap. On a $50M T&amp;E programme, a 5% improvement in hotel rate compliance is $250,000 per year. That is the cost of being happy with what you have.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal reveal-delay-4">
+          <button class="faq-question" aria-expanded="false">
+            We are mid-procurement on a new TMC.
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              This is the best time to implement Clarasight. Your new TMC data joins a unified view that already holds your historical data from the outgoing TMC. There is no migration, no new baseline, and no gap in programme visibility during the transition. You maintain continuity from day one of the new TMC contract — and you walk into the new supplier relationship with your existing programme data already structured and auditable.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 14: GUARANTEE ──────────────────────────── -->
+  <section id="guarantee">
+    <div class="section-inner">
+      <span class="section-label reveal">Our commitment</span>
+      <h2 class="reveal reveal-delay-1">Clarasight's deployment guarantee.</h2>
+      <div class="guarantee-box reveal reveal-delay-2">
+        <span class="guarantee-badge">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M7 1L8.5 5.5H13L9.25 8L10.75 12.5L7 10L3.25 12.5L4.75 8L1 5.5H5.5L7 1Z" fill="#A8FFE5"/>
+          </svg>
+          Deployment Guarantee
+        </span>
+        <p class="guarantee-text">
+          <strong>If Clarasight is not producing live, unified T&amp;E data within 30 days of data connection</strong> — because of issues on our side — we extend your contract at no charge for the period the system was not delivering.
+        </p>
+        <p class="guarantee-text">
+          We have deployed for programmes ranging from $10M to $1B in managed T&amp;E spend. The deployment risk is ours, not yours.
+        </p>
+        <p class="guarantee-text">
+          If this is not the right fit for your programme, we will tell you that in the first conversation — not six months into an implementation.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 15: FINAL CTA ──────────────────────────── -->
+  <section id="final-cta">
+    <div class="cta-inner">
+      <span class="section-label light reveal" style="text-align:center; display:block; margin-bottom:20px;">Request a demo</span>
+      <h2 class="reveal reveal-delay-1">
+        You walk into your next<br/>hotel renewal in Q4.<br/>
+        <em>Which data are you bringing?</em>
+      </h2>
+      <p class="cta-sub reveal reveal-delay-2">
+        Request a 30-minute demo. We will show you exactly what your T&amp;E data looks like unified — using one of your actual source data formats as the demonstration input.
+      </p>
+      <div class="cta-buttons reveal reveal-delay-3">
+        <a href="https://www.clarasight.com/request-demo" class="btn-cta-primary">
+          Request a Demo with Clarasight &rarr;
+        </a>
+        <p class="cta-note">30 minutes. No obligation. See your programme data, not a generic demo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────────────── -->
+  <footer>
+    <p class="footer-copy">&copy; 2026 Clarasight. All rights reserved.</p>
+    <p class="footer-attr">This is a mockup of what a Clarasight customer acquisition page could look like for the corporate travel director segment. Strategy and mockup prepared by Jean Mundabi Fala, MDB Growth Capital.</p>
+  </footer>
+
+  <!-- ── JS ─────────────────────────────────────────────── -->
+  <script>
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    revealEls.forEach(function(el) { observer.observe(el); });
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = btn.closest('.faq-item');
+        var isOpen = item.classList.contains('open');
+
+        document.querySelectorAll('.faq-item.open').forEach(function(openItem) {
+          openItem.classList.remove('open');
+          openItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        var target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

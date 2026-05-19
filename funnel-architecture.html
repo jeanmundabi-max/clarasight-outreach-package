@@ -1,0 +1,1495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clarasight — Funnel Architecture | MDB Growth Capital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary: #514FEE;
+      --primary-light: #e8e8fd;
+      --primary-mid: #c5c4fa;
+      --mint: #A8FFE5;
+      --mint-dim: #d4fff2;
+      --dark: #07061A;
+      --dark-mid: #1a1830;
+      --bg: #F7F7FF;
+      --white: #ffffff;
+
+      --red-bg: #fef2f2;
+      --red-border: #fecaca;
+      --red-text: #991b1b;
+      --red-dot: #dc2626;
+
+      --green-bg: #f0fdf4;
+      --green-border: #bbf7d0;
+      --green-text: #14532d;
+      --green-dot: #16a34a;
+
+      --amber-bg: #fffbeb;
+      --amber-border: #fde68a;
+      --amber-text: #78350f;
+      --amber-dot: #d97706;
+
+      --font: 'Space Grotesk', sans-serif;
+      --base: 18px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      font-size: var(--base);
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── HEADER ── */
+    .site-header {
+      background: var(--dark);
+      padding: 0 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .logo-mark {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-dot {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-dot span {
+      color: white;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: -0.5px;
+    }
+
+    .logo-text {
+      color: white;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: -0.2px;
+    }
+
+    .logo-text em {
+      color: var(--mint);
+      font-style: normal;
+    }
+
+    .header-badge {
+      background: rgba(81, 79, 238, 0.2);
+      border: 1px solid rgba(81, 79, 238, 0.4);
+      color: var(--primary-mid);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 100px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--dark);
+      padding: 80px 48px 96px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(81,79,238,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      left: 20%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(168,255,229,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 860px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(168,255,229,0.1);
+      border: 1px solid rgba(168,255,229,0.25);
+      color: var(--mint);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 100px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+
+    .hero-label .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--mint);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 700;
+      color: white;
+      line-height: 1.12;
+      letter-spacing: -1.5px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 .accent {
+      color: var(--primary-mid);
+    }
+
+    .hero h1 .mint {
+      color: var(--mint);
+    }
+
+    .hero-sub {
+      font-size: 18px;
+      color: rgba(255,255,255,0.6);
+      max-width: 640px;
+      line-height: 1.65;
+      margin-bottom: 40px;
+    }
+
+    .hero-meta {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .hero-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .hero-meta-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: rgba(255,255,255,0.35);
+    }
+
+    .hero-meta-value {
+      font-size: 15px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.85);
+    }
+
+    /* ── SECTION WRAPPER ── */
+    .section {
+      padding: 80px 48px;
+    }
+
+    .section-alt {
+      background: white;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+
+    .section-title {
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: 700;
+      color: var(--dark);
+      letter-spacing: -0.8px;
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+
+    .section-desc {
+      font-size: 17px;
+      color: #4b5563;
+      max-width: 660px;
+      line-height: 1.65;
+      margin-bottom: 48px;
+    }
+
+    /* ── FUNNEL VISUAL ── */
+    .funnel-shape {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 64px;
+      gap: 0;
+    }
+
+    .funnel-level {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2px;
+      width: 100%;
+      position: relative;
+    }
+
+    .funnel-level:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      bottom: -18px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 18px;
+      background: var(--primary);
+      opacity: 0.3;
+      z-index: 2;
+    }
+
+    .funnel-stage-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2px;
+      margin-bottom: 2px;
+    }
+
+    .stage-header-cell {
+      padding: 14px 20px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      text-align: center;
+      border-radius: 10px 10px 0 0;
+    }
+
+    .sh-today { background: var(--red-bg); color: var(--red-text); border: 1px solid var(--red-border); border-bottom: none; }
+    .sh-after  { background: var(--green-bg); color: var(--green-text); border: 1px solid var(--green-border); border-bottom: none; }
+    .sh-missing { background: var(--amber-bg); color: var(--amber-text); border: 1px solid var(--amber-border); border-bottom: none; }
+
+    /* ── STAGE BLOCKS ── */
+    .stage-block {
+      margin-bottom: 48px;
+    }
+
+    .stage-title-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .stage-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--primary-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .stage-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--dark);
+      letter-spacing: -0.5px;
+    }
+
+    .stage-subtitle {
+      font-size: 14px;
+      color: #6b7280;
+      font-weight: 500;
+    }
+
+    .stage-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+    }
+
+    @media (max-width: 900px) {
+      .stage-grid { grid-template-columns: 1fr; }
+      .section { padding: 60px 24px; }
+      .hero { padding: 60px 24px 80px; }
+      .site-header { padding: 0 24px; }
+    }
+
+    .col-card {
+      border-radius: 14px;
+      padding: 24px;
+      position: relative;
+    }
+
+    .col-today {
+      background: var(--red-bg);
+      border: 1px solid var(--red-border);
+    }
+
+    .col-after {
+      background: var(--green-bg);
+      border: 1px solid var(--green-border);
+    }
+
+    .col-missing {
+      background: var(--amber-bg);
+      border: 1px solid var(--amber-border);
+    }
+
+    .col-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .col-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .dot-red    { background: var(--red-dot); }
+    .dot-green  { background: var(--green-dot); }
+    .dot-amber  { background: var(--amber-dot); }
+
+    .col-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .label-today   { color: var(--red-text); }
+    .label-after   { color: var(--green-text); }
+    .label-missing { color: var(--amber-text); }
+
+    .col-body {
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    .col-today .col-body   { color: #7f1d1d; }
+    .col-after .col-body   { color: #14532d; }
+    .col-missing .col-body { color: #78350f; }
+
+    .col-metric {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 14px;
+      padding: 6px 12px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .metric-today   { background: rgba(220,38,38,0.12); color: var(--red-dot); }
+    .metric-after   { background: rgba(22,163,74,0.12); color: var(--green-dot); }
+
+    .stage-connector {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 0;
+    }
+
+    .connector-arrow {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .connector-line {
+      width: 2px;
+      height: 28px;
+      background: linear-gradient(to bottom, var(--primary-mid), var(--primary));
+      border-radius: 2px;
+    }
+
+    .connector-tip {
+      width: 0;
+      height: 0;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 9px solid var(--primary);
+    }
+
+    .connector-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--primary);
+      background: var(--primary-light);
+      padding: 4px 12px;
+      border-radius: 100px;
+      margin-top: 8px;
+    }
+
+    /* ── GROWTH LOOPS ── */
+    .loops-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .loop-card {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 18px;
+      overflow: hidden;
+    }
+
+    .loop-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 28px 32px 24px;
+      border-bottom: 1px solid #f3f4f6;
+    }
+
+    .loop-number {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 20px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .loop-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--dark);
+      letter-spacing: -0.3px;
+    }
+
+    .loop-desc {
+      font-size: 14px;
+      color: #6b7280;
+      margin-top: 3px;
+    }
+
+    .loop-body {
+      padding: 28px 32px;
+    }
+
+    .loop-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .loop-step {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      position: relative;
+    }
+
+    .loop-step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 19px;
+      top: 38px;
+      width: 2px;
+      height: calc(100% - 10px);
+      background: linear-gradient(to bottom, var(--primary-mid), transparent);
+    }
+
+    .step-node {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid var(--primary-mid);
+      background: var(--primary-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--primary);
+      flex-shrink: 0;
+      z-index: 1;
+      position: relative;
+    }
+
+    .step-node.highlight {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: white;
+    }
+
+    .step-content {
+      padding: 8px 0 24px;
+    }
+
+    .step-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 4px;
+    }
+
+    .step-desc {
+      font-size: 14px;
+      color: #6b7280;
+      line-height: 1.55;
+    }
+
+    .step-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 8px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .badge-signal { background: var(--primary-light); color: var(--primary); }
+    .badge-result { background: var(--green-bg); color: var(--green-text); }
+    .badge-loop   { background: var(--mint-dim); color: #065f46; }
+    .badge-asset  { background: var(--amber-bg); color: var(--amber-text); }
+
+    .loop-flywheel {
+      margin-top: 24px;
+      padding: 16px 20px;
+      background: var(--primary-light);
+      border-radius: 10px;
+      border-left: 3px solid var(--primary);
+      font-size: 14px;
+      color: var(--dark-mid);
+      line-height: 1.6;
+    }
+
+    .loop-flywheel strong {
+      color: var(--primary);
+    }
+
+    /* ── VELOCITY STRIP ── */
+    .velocity-strip {
+      background: var(--dark);
+      border-radius: 18px;
+      padding: 40px 48px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin: 0 auto 64px;
+      max-width: 1100px;
+    }
+
+    @media (max-width: 800px) {
+      .velocity-strip { grid-template-columns: 1fr 1fr; }
+    }
+
+    .velocity-item {
+      text-align: center;
+    }
+
+    .velocity-num {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--mint);
+      letter-spacing: -1px;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .velocity-label {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.4;
+    }
+
+    .velocity-divider {
+      border: none;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+
+    /* ── CTA SECTION ── */
+    .cta-section {
+      background: var(--dark);
+      padding: 96px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(81,79,238,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .cta-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(168,255,229,0.1);
+      border: 1px solid rgba(168,255,229,0.2);
+      color: var(--mint);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+    }
+
+    .cta-title {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 700;
+      color: white;
+      letter-spacing: -1px;
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+
+    .cta-title .accent { color: var(--primary-mid); }
+
+    .cta-sub {
+      font-size: 17px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.65;
+      margin-bottom: 40px;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--primary);
+      color: white;
+      font-family: var(--font);
+      font-size: 16px;
+      font-weight: 700;
+      padding: 16px 36px;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: none;
+      cursor: pointer;
+      letter-spacing: -0.2px;
+    }
+
+    .cta-btn:hover {
+      background: #3d3bd8;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(81,79,238,0.4);
+    }
+
+    .cta-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .cta-note {
+      margin-top: 20px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark-mid);
+      padding: 32px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .footer-credit {
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+    }
+
+    .footer-credit strong {
+      color: rgba(255,255,255,0.65);
+    }
+
+    .footer-doc {
+      font-size: 12px;
+      color: rgba(255,255,255,0.2);
+      letter-spacing: 0.5px;
+    }
+
+    /* ── DIVIDER ── */
+    .stage-divider {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin: 44px 0 44px;
+    }
+
+    .stage-divider-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, #e5e7eb, transparent);
+    }
+
+    .stage-divider-arrow {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      color: var(--primary);
+    }
+
+    .stage-divider-arrow svg {
+      width: 22px;
+      height: 22px;
+      opacity: 0.6;
+    }
+
+    .stage-divider-text {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--primary);
+      background: var(--primary-light);
+      padding: 4px 14px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+
+    /* ── LEGEND ── */
+    .legend {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    /* ── UTIL ── */
+    ul.check-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    ul.check-list li {
+      display: flex;
+      gap: 8px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    ul.check-list li::before {
+      content: '→';
+      flex-shrink: 0;
+      font-weight: 700;
+      color: var(--primary);
+      margin-top: 1px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════
+       HEADER
+  ══════════════════════════════════════════ -->
+  <header class="site-header">
+    <div class="logo-mark">
+      <div class="logo-dot"><span>M</span></div>
+      <div class="logo-text">MDB Growth Capital &nbsp;×&nbsp; <em>Clarasight</em></div>
+    </div>
+    <div class="header-badge">Funnel Architecture</div>
+  </header>
+
+  <!-- ══════════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-label">
+        <span class="dot"></span>
+        Revenue Infrastructure Blueprint
+      </div>
+      <h1>
+        How Clarasight goes from<br />
+        <span class="accent">founder-led referrals</span><br />
+        to a <span class="mint">predictable acquisition engine.</span>
+      </h1>
+      <p class="hero-sub">
+        Three funnel stages. Four cascade columns. Three self-reinforcing growth loops.
+        Built specifically for Clarasight's post-Series A buying window — May 2026.
+      </p>
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Target</span>
+          <span class="hero-meta-value">Adam Braun, CEO</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Company</span>
+          <span class="hero-meta-value">Clarasight</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Stage</span>
+          <span class="hero-meta-value">Series A — $11.5M (April 2026)</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Presented by</span>
+          <span class="hero-meta-value">Jean Mundabi Fala</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       VELOCITY METRICS
+  ══════════════════════════════════════════ -->
+  <div style="padding: 48px 48px 0; background: var(--bg);">
+    <div class="velocity-strip">
+      <div class="velocity-item">
+        <div class="velocity-num">1–2</div>
+        <div class="velocity-label">Qualified conversations per month today</div>
+      </div>
+      <div class="velocity-item">
+        <div class="velocity-num">5–8</div>
+        <div class="velocity-label">Target after MDB installs outbound</div>
+      </div>
+      <div class="velocity-item">
+        <div class="velocity-num">~30%</div>
+        <div class="velocity-label">Warm referral conversion rate (current baseline)</div>
+      </div>
+      <div class="velocity-item">
+        <div class="velocity-num">3</div>
+        <div class="velocity-label">Self-reinforcing growth loops installed</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       FUNNEL CASCADE
+  ══════════════════════════════════════════ -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-label">Funnel Cascade</div>
+      <h2 class="section-title">Where leads are won, lost, and left on the table</h2>
+      <p class="section-desc">
+        Today Clarasight operates on four stages — each with the same structural gap:
+        strong execution once a buyer is engaged, weak systematic access to buyers before they are.
+        Each column shows the current state, what changes after MDB installs, and what is missing.
+      </p>
+
+      <div class="legend">
+        <div class="legend-item">
+          <div class="legend-dot dot-red"></div>
+          <span style="color: var(--red-text);">Today — Current State</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot dot-green"></div>
+          <span style="color: var(--green-text);">After MDB Installs</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot dot-amber"></div>
+          <span style="color: var(--amber-text);">What is Missing</span>
+        </div>
+      </div>
+
+      <!-- ── TOFU ── -->
+      <div class="stage-block">
+        <div class="stage-title-row">
+          <div class="stage-icon">🔝</div>
+          <div>
+            <div class="stage-title">Top of Funnel — Attraction</div>
+            <div class="stage-subtitle">How enterprise travel programmes discover Clarasight for the first time</div>
+          </div>
+        </div>
+        <div class="stage-grid">
+
+          <div class="col-card col-today">
+            <div class="col-header">
+              <div class="col-dot dot-red"></div>
+              <span class="col-label label-today">🔴 Today</span>
+            </div>
+            <div class="col-body">
+              Enterprise buyers discover Clarasight through GBTA peer networks, conference presence (Business Travel Show, GBTA Global), and direct referrals from existing customers. Awareness is limited to buyers who already know Clarasight exists — or who ask a peer who does.
+            </div>
+            <div class="col-metric metric-today">
+              ⚠ 1–2 qualified conversations per month
+            </div>
+          </div>
+
+          <div class="col-card col-after">
+            <div class="col-header">
+              <div class="col-dot dot-green"></div>
+              <span class="col-label label-after">🟢 After MDB Installs</span>
+            </div>
+            <div class="col-body">
+              MDB identifies enterprise programmes in active buying windows and reaches them before they ask their peer network. Clarasight enters the buyer's evaluation at step 2 — not step 4. Outreach is specific to the buying trigger: regulatory obligation, cost overrun event, M&A programme integration, or headcount consolidation signal.
+            </div>
+            <div class="col-metric metric-after">
+              ✓ Target: 5–8 qualified conversations per month
+            </div>
+          </div>
+
+          <div class="col-card col-missing">
+            <div class="col-header">
+              <div class="col-dot dot-amber"></div>
+              <span class="col-label label-missing">🟡 What is Missing</span>
+            </div>
+            <div class="col-body">
+              <ul class="check-list">
+                <li>Systematic outbound to companies in documented buying windows</li>
+                <li>Content that reaches buyers during informal research — before a demo request</li>
+                <li>Authority Engine that keeps Clarasight visible to the 95% not yet in a window</li>
+                <li>Signal detection: LinkedIn job postings, CSRD compliance deadlines, M&A announcements</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- CONNECTOR -->
+      <div class="stage-divider">
+        <div class="stage-divider-line"></div>
+        <div class="stage-divider-text">↓ Buyers enter evaluation</div>
+        <div class="stage-divider-line"></div>
+      </div>
+
+      <!-- ── MOFU ── -->
+      <div class="stage-block">
+        <div class="stage-title-row">
+          <div class="stage-icon">🎯</div>
+          <div>
+            <div class="stage-title">Middle of Funnel — Alignment</div>
+            <div class="stage-subtitle">How interested buyers research, compare, and qualify themselves</div>
+          </div>
+        </div>
+        <div class="stage-grid">
+
+          <div class="col-card col-today">
+            <div class="col-header">
+              <div class="col-dot dot-red"></div>
+              <span class="col-label label-today">🔴 Today</span>
+            </div>
+            <div class="col-body">
+              Demo-gated pricing. No trial. No self-serve research path. Buyers who want to evaluate independently cannot. No nurture content exists for buyers in the pre-demo phase. Non-ready buyers fall off with no re-engagement mechanism.
+            </div>
+            <div class="col-metric metric-today">
+              ⚠ Zero lead nurture infrastructure
+            </div>
+          </div>
+
+          <div class="col-card col-after">
+            <div class="col-header">
+              <div class="col-dot dot-green"></div>
+              <span class="col-label label-after">🟢 After MDB Installs</span>
+            </div>
+            <div class="col-body">
+              MDB qualification identifies live evaluation versus awareness-only buyers before a call is booked. Pre-call brief gives the Clarasight team context: buying window type, pain, decision-maker background, competitive alternatives in consideration. 20-week value-only nurture for non-ready contacts keeps Clarasight in front of the buyer until the window opens.
+            </div>
+            <div class="col-metric metric-after">
+              ✓ 20-week nurture installed — no buyer is lost
+            </div>
+          </div>
+
+          <div class="col-card col-missing">
+            <div class="col-header">
+              <div class="col-dot dot-amber"></div>
+              <span class="col-label label-missing">🟡 What is Missing</span>
+            </div>
+            <div class="col-body">
+              <ul class="check-list">
+                <li>Lead nurture sequence (currently zero — no mechanism to stay in front of non-ready buyers)</li>
+                <li>Comparison pages for buyers independently evaluating Clarasight versus SAP Concur and internal BI</li>
+                <li>Content capturing buyers in the informal research phase before they contact sales</li>
+                <li>Lead scoring to identify when cold contacts enter a live buying window</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- CONNECTOR -->
+      <div class="stage-divider">
+        <div class="stage-divider-line"></div>
+        <div class="stage-divider-text">↓ Qualified buyer enters sales</div>
+        <div class="stage-divider-line"></div>
+      </div>
+
+      <!-- ── BOFU ── -->
+      <div class="stage-block">
+        <div class="stage-title-row">
+          <div class="stage-icon">⚡</div>
+          <div>
+            <div class="stage-title">Bottom of Funnel — Activation</div>
+            <div class="stage-subtitle">How evaluation converts to a signed contract</div>
+          </div>
+        </div>
+        <div class="stage-grid">
+
+          <div class="col-card col-today">
+            <div class="col-header">
+              <div class="col-dot dot-red"></div>
+              <span class="col-label label-today">🔴 Today</span>
+            </div>
+            <div class="col-body">
+              Adam and the founding team run sales personally. Conversion is high — warm referral baseline around 30% — but volume is entirely constrained by founder bandwidth. The bottleneck is not conversion. It is throughput. Adam cannot book more calls than he can personally handle.
+            </div>
+            <div class="col-metric metric-today">
+              ⚠ Ceiling = founder calendar capacity
+            </div>
+          </div>
+
+          <div class="col-card col-after">
+            <div class="col-header">
+              <div class="col-dot dot-green"></div>
+              <span class="col-label label-after">🟢 After MDB Installs</span>
+            </div>
+            <div class="col-body">
+              MDB qualifies before the handoff. The sales team enters each call knowing: buying window type, decision-maker background, specific pain, competitive alternatives being considered. Outbound-sourced buyers convert at a higher rate because they have already seen proof relevant to their specific situation before the first call.
+            </div>
+            <div class="col-metric metric-after">
+              ✓ Qualified handoffs only — no cold demos
+            </div>
+          </div>
+
+          <div class="col-card col-missing">
+            <div class="col-header">
+              <div class="col-dot dot-amber"></div>
+              <span class="col-label label-missing">🟡 What is Missing</span>
+            </div>
+            <div class="col-body">
+              <ul class="check-list">
+                <li>Sales enablement content differentiated by buying window type (CSRD buyer vs cost-reduction buyer vs M&A integration buyer)</li>
+                <li>Competitive battlecards: SAP Concur versus Clarasight and Internal BI versus Clarasight</li>
+                <li>Referral engineering from existing BTN 100 wins — each win is an untapped referral trigger</li>
+                <li>Defined handoff process from MDB qualification to Clarasight sales team</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- CONNECTOR -->
+      <div class="stage-divider">
+        <div class="stage-divider-line"></div>
+        <div class="stage-divider-text">↓ Contract signed</div>
+        <div class="stage-divider-line"></div>
+      </div>
+
+      <!-- ── POST-SALE ── -->
+      <div class="stage-block">
+        <div class="stage-title-row">
+          <div class="stage-icon">🔄</div>
+          <div>
+            <div class="stage-title">Post-Sale — Expansion and Referral</div>
+            <div class="stage-subtitle">How closed customers compound into the next acquisition cycle</div>
+          </div>
+        </div>
+        <div class="stage-grid">
+
+          <div class="col-card col-today">
+            <div class="col-header">
+              <div class="col-dot dot-red"></div>
+              <span class="col-label label-today">🔴 Today</span>
+            </div>
+            <div class="col-body">
+              Customer success and expansion are actively happening — the 10x growth trajectory is evidence. But the referral engine is entirely informal. No systematic process for case study production or for engineering referral introductions from happy customers. Each BTN 100 win is a one-time outcome rather than an active compounding asset.
+            </div>
+            <div class="col-metric metric-today">
+              ⚠ Referral engine: informal, not engineered
+            </div>
+          </div>
+
+          <div class="col-card col-after">
+            <div class="col-header">
+              <div class="col-dot dot-green"></div>
+              <span class="col-label label-after">🟢 After MDB Installs</span>
+            </div>
+            <div class="col-body">
+              Referral engineering identifies which customers are referral-ready and engineers the ask at the right moment (renewal, outcome milestone, GBTA event). Each BTN 100 win becomes an active referral trigger. Bain and Company, Big Four anonymised results, and the Scope 3 compliance wins are packaged into case studies that feed the ToFu loop directly.
+            </div>
+            <div class="col-metric metric-after">
+              ✓ Each win feeds the next acquisition cycle
+            </div>
+          </div>
+
+          <div class="col-card col-missing">
+            <div class="col-header">
+              <div class="col-dot dot-amber"></div>
+              <span class="col-label label-missing">🟡 What is Missing</span>
+            </div>
+            <div class="col-body">
+              <ul class="check-list">
+                <li>Case study production workflow — two Big Four customer outcomes are not yet systematised</li>
+                <li>Systematic referral ask at renewal — timed to outcome milestone, not left to chance</li>
+                <li>Community touchpoints at GBTA events for brand amplification by existing customers</li>
+                <li>Anonymisation templates for regulated customers who cannot be named publicly</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       GROWTH LOOPS
+  ══════════════════════════════════════════ -->
+  <section class="section section-alt">
+    <div class="section-inner">
+      <div class="section-label">Growth Loops</div>
+      <h2 class="section-title">Three self-reinforcing loops that compound over time</h2>
+      <p class="section-desc">
+        Each loop connects the output of one cycle to the input of the next.
+        At 90 days, they run in parallel. At 12 months, the loops are the acquisition engine —
+        not individual campaigns.
+      </p>
+
+      <div class="loops-grid">
+
+        <!-- LOOP 1 -->
+        <div class="loop-card">
+          <div class="loop-header">
+            <div class="loop-number">01</div>
+            <div>
+              <div class="loop-title">Core Acquisition Loop</div>
+              <div class="loop-desc">Signal to conversation to case study to next signal</div>
+            </div>
+          </div>
+          <div class="loop-body">
+            <div class="loop-steps">
+
+              <div class="loop-step">
+                <div class="step-node highlight">1</div>
+                <div class="step-content">
+                  <div class="step-title">Buying window detected</div>
+                  <div class="step-desc">Enterprise travel programme enters an active buying window — regulatory obligation, cost overrun, M&A integration, or headcount restructure.</div>
+                  <span class="step-badge badge-signal">Signal source: LinkedIn job posts, CSRD filings, M&A announcements, CMS data</span>
+                </div>
+              </div>
+
+              <div class="loop-step">
+                <div class="step-node">2</div>
+                <div class="step-content">
+                  <div class="step-title">Buying-window-specific outreach reaches decision-maker</div>
+                  <div class="step-desc">MDB reaches the programme manager or Head of Travel before the informal shortlist forms. Message is specific to the trigger — not a generic Clarasight pitch.</div>
+                  <span class="step-badge badge-signal">Timing advantage: buyer is at step 2, not step 4 of their journey</span>
+                </div>
+              </div>
+
+              <div class="loop-step">
+                <div class="step-node">3</div>
+                <div class="step-content">
+                  <div class="step-title">Clarasight enters evaluation early</div>
+                  <div class="step-desc">Prospect receives a relevant, proof-backed package before they have formed a shortlist. Clarasight is already in consideration when they begin formal evaluation.</div>
+                </div>
+              </div>
+
+              <div class="loop-step">
+                <div class="step-node">4</div>
+                <div class="step-content">
+                  <div class="step-title">Qualified handoff to Clarasight sales team</div>
+                  <div class="step-desc">MDB passes the pre-qualified opportunity with buying window context, pain identified, and competitive alternatives noted. Sales team enters the first call informed.</div>
+                  <span class="step-badge badge-result">Baseline: warm referral conversion ~30%</span>
+                </div>
+              </div>
+
+              <div class="loop-step">
+                <div class="step-node">5</div>
+                <div class="step-content">
+                  <div class="step-title">New BTN 100 enterprise customer</div>
+                  <div class="step-desc">Programme becomes a Clarasight customer. 99% reduction in reporting time. 90% reduction in manual review hours. Defensible Scope 3 emissions data for board reporting.</div>
+                  <span class="step-badge badge-result">Outcome metric: 99% reduction in reporting time</span>
+                </div>
+              </div>
+
+              <div class="loop-step">
+                <div class="step-node highlight">↺</div>
+                <div class="step-content">
+                  <div class="step-title">Result becomes case study — feeds the next cycle</div>
+                  <div class="step-desc">The customer outcome is packaged as a case study and distributed through MDB outreach to the next cohort of programmes entering buying windows. The loop restarts with stronger proof than the previous cycle.</div>
+                  <span class="step-badge badge-loop">Loop accelerates: each cycle carries more evidence than the last</span>
+                </div>
+              </div>
+
+            </div>
+            <div class="loop-flywheel">
+              <strong>Why this compounds:</strong> Better signal data, sharper message, and stronger case study proof with each cycle. At cycle 3, MDB knows which company profiles and which buying window types produce the highest quality conversations — and every new campaign starts from that knowledge.
+            </div>
+          </div>
+        </div>
+
+        <!-- LOOP 2 -->
+        <div class="loop-card">
+          <div class="loop-header">
+            <div class="loop-number">02</div>
+            <div>
+              <div class="loop-title">Credibility and Case Study Loop</div>
+              <div class="loop-desc">Published outcome data builds trust before the first contact</div>
+            </div>
+          </div>
+          <div class="loop-body">
+            <div class="loop-steps">
+
+              <div class="loop-step">
+                <div class="step-node highlight">1</div>
+                <div class="step-content">
+                  <div class="step-title">Customer outcome achieved and documented</div>
+                  <div class="step-desc">Clarasight delivers a measurable result for a BTN 100 enterprise customer. 99% reporting time reduction. 90% manual review reduction. Defensible Scope 3 data for board use.</div>
+                  <span class="step-badge badge-result">Current status: Bain &amp; Company case study published. Two Big Four outcomes not yet systematised.</span>
+                </div>
+              </div>
+
+              <div class="loop-step">
+                <div class="step-node">2</div>
+                <div class="step-content">
+                  <div class="step-title">Anonymised case study or press mention published</div>
+                  <div class="step-desc">Outcome is packaged as an anonymised case study or placed in travel trade press: Business Travel News, BTN Executive, The Company Dime, PhocusWire. The metric reaches buyers outside Clarasight's existing network.</div>
+                  <span class="step-badge badge-asset">Distribution channels: BTN, trade press, GBTA newsletter, LinkedIn</span>
+                </div>
+              </div>
+
+              <div class="loop-step">
+                <div class="step-node">3</div>
+                <div class="step-content">
+                  <div class="step-title">Buyer in informal research phase encounters the outcome</div>
+                  <div class="step-desc">An enterprise travel manager researching their own reporting problem finds the case study during desk research — before they ask a peer, before they book a demo, before Clarasight knows they exist.</div>
+                </div>
+              </div>
+
+              <div class="loop-step">
+                <div class="step-node">4</div>
+                <div class="step-content">
+                  <div class="step-title">Buyer arrives at demo with pre-built confidence</div>
+                  <div class="step-desc">Because the buyer has already seen a documented outcome relevant to their situation, the first call begins at a higher trust baseline. The sales team does not spend the first 20 minutes establishing credibility.</div>
+                  <span class="step-badge badge-result">Effect: shorter sales cycle, higher conversion on first call</span>
+                </div>
+              </div>
+
+              <div class="loop-step">
+                <div class="step-node highlight">↺</div>
+                <div class="step-content">
+                  <div class="step-title">Higher ACV win produces a stronger case study</div>
+                  <div class="step-desc">Bigger outcome with a more recognisable enterprise customer. Each cycle adds a more compelling proof point to the loop. The case study library grows more persuasive with each rotation.</div>
+                  <span class="step-badge badge-loop">Loop strengthens: more recognised customer names, larger programme sizes, bigger metrics</span>
+                </div>
+              </div>
+
+            </div>
+            <div class="loop-flywheel">
+              <strong>Current state:</strong> This loop is running informally — it is not engineered. The Bain case study exists. Two Big Four outcomes are confirmed but not packaged. MDB installs the production workflow so each new outcome automatically enters the loop rather than staying inside Clarasight's sales deck.
+            </div>
+          </div>
+        </div>
+
+        <!-- LOOP 3 -->
+        <div class="loop-card">
+          <div class="loop-header">
+            <div class="loop-number">03</div>
+            <div>
+              <div class="loop-title">Test, Measure, Learn, Scale, Document</div>
+              <div class="loop-desc">Structured 90-day cycles that produce a permanent institutional knowledge asset</div>
+            </div>
+          </div>
+          <div class="loop-body">
+            <div class="loop-steps">
+
+              <div class="loop-step">
+                <div class="step-node highlight">1</div>
+                <div class="step-content">
+                  <div class="step-title">MDB runs each 90-day cycle as a structured experiment</div>
+                  <div class="step-desc">Every cycle has defined inputs: target segment, buying window type, message variant. Three variables tested per cycle. Results tracked at reply rate, conversation quality, and conversion stage.</div>
+                  <span class="step-badge badge-signal">Tracked: reply rate by segment, conversation quality, conversion rate by window type</span>
+                </div>
+              </div>
+
+              <div class="loop-step">
+                <div class="step-node">2</div>
+                <div class="step-content">
+                  <div class="step-title">Winning segment and message combination documented</div>
+                  <div class="step-desc">At cycle end, MDB identifies which company profile, buying window type, and message variant produced the highest quality conversations. This is written into a Clarasight-specific playbook — not a generic template.</div>
+                  <span class="step-badge badge-asset">Output: permanent internal document — "Segment X + Window Y + Message Z = highest quality conversations"</span>
+                </div>
+              </div>
+
+              <div class="loop-step">
+                <div class="step-node">3</div>
+                <div class="step-content">
+                  <div class="step-title">Second cycle starts from the winning profile first</div>
+                  <div class="step-desc">Next cycle prioritises the highest-performing profile identified in cycle one. Messaging is refined based on buyer feedback from sales calls. The starting quality of cycle two is higher than the starting quality of cycle one.</div>
+                </div>
+              </div>
+
+              <div class="loop-step">
+                <div class="step-node">4</div>
+                <div class="step-content">
+                  <div class="step-title">Messaging refined from sales call feedback</div>
+                  <div class="step-desc">Every sales call produces insight: what language the buyer used, what objection came up, which proof point landed. MDB integrates this feedback before the next cycle begins. The channel continuously improves.</div>
+                  <span class="step-badge badge-result">Effect: reply rate improves each cycle because the message is being refined on live buyer data</span>
+                </div>
+              </div>
+
+              <div class="loop-step">
+                <div class="step-node highlight">↺</div>
+                <div class="step-content">
+                  <div class="step-title">Third cycle reaches full TAM with institutional knowledge</div>
+                  <div class="step-desc">By cycle three, Clarasight possesses a documented understanding of which company types, at which moments, with which messages produce the strongest commercial conversations. That document does not disappear when MDB's engagement ends. It stays on Clarasight's balance sheet permanently.</div>
+                  <span class="step-badge badge-loop">Permanent asset: the playbook belongs to Clarasight — not rented from an agency</span>
+                </div>
+              </div>
+
+            </div>
+            <div class="loop-flywheel">
+              <strong>Why this matters:</strong> Most agencies hand over a list and disappear. MDB installs the system and documents the institutional knowledge. After 3 cycles, Clarasight's internal team can run this channel themselves. The value compounds after MDB leaves — not just while the engagement is active.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       CTA
+  ══════════════════════════════════════════ -->
+  <section class="cta-section">
+    <div class="cta-inner">
+      <div class="cta-eyebrow">15-Minute Conversation</div>
+      <h2 class="cta-title">
+        Every week without an outbound channel<br />
+        is a week the <span class="accent">board expects to explain.</span>
+      </h2>
+      <p class="cta-sub">
+        The Series A is closed. The GTM hire is posted. The architecture above is built for this exact moment.
+        15 minutes to walk through what the first 90 days looks like for Clarasight specifically.
+      </p>
+      <a href="https://cal.com/jean-m-8f4kbr/15min" target="_blank" rel="noopener" class="cta-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" /></svg>
+        Book 15 minutes with Jean
+      </a>
+      <p class="cta-note">cal.com/jean-m-8f4kbr/15min — no commitment, no pitch deck, just the architecture conversation</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════ -->
+  <footer>
+    <div class="footer-credit">
+      Strategy and GTM research by <strong>Jean Mundabi Fala, MDB Growth Capital</strong>
+    </div>
+    <div class="footer-doc">
+      Funnel Architecture — Clarasight — May 2026
+    </div>
+  </footer>
+
+</body>
+</html>

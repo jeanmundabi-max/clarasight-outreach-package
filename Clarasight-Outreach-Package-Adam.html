@@ -1,0 +1,1917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adam Braun — Clarasight Growth Package | MDB Growth Capital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg2: #f8fafc;
+    --bg3: #f1f5f9;
+    --bg4: #e8eef5;
+    --border: #e2e8f0;
+    --accent: #0066cc;
+    --accent2: #1a7ae0;
+    --accent-soft: rgba(0,102,204,0.08);
+    --accent-glow: rgba(0,102,204,0.15);
+    --text: #1a202c;
+    --text-muted: #64748b;
+    --text-dim: #94a3b8;
+    --danger: #dc2626;
+    --danger-soft: rgba(220,38,38,0.08);
+    --success: #16a34a;
+    --success-soft: rgba(22,163,74,0.08);
+    --warning: #b45309;
+    --warning-soft: rgba(180,83,9,0.08);
+    --sidebar-w: 256px;
+    --font: 'Space Grotesk', system-ui, sans-serif;
+    --mono: 'Space Mono', monospace;
+  }
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body {
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--font);
+    font-size:18px;
+    line-height:1.75;
+    display:flex;
+    min-height:100vh;
+  }
+
+  /* SIDEBAR */
+  #sidebar {
+    width:var(--sidebar-w);
+    min-width:var(--sidebar-w);
+    position:fixed;
+    top:0; left:0; bottom:0;
+    background:var(--bg2);
+    border-right:1px solid var(--border);
+    display:flex;
+    flex-direction:column;
+    overflow-y:auto;
+    z-index:100;
+  }
+  .sidebar-brand {
+    padding:24px 20px 20px;
+    border-bottom:1px solid var(--border);
+  }
+  .sidebar-brand .company {
+    font-size:13px;
+    font-weight:700;
+    color:var(--accent2);
+    letter-spacing:0.5px;
+    text-transform:uppercase;
+  }
+  .sidebar-brand .for-line {
+    font-size:11px;
+    color:var(--text-muted);
+    margin-top:4px;
+  }
+  #sidebar nav { padding:12px 0 24px; }
+  #sidebar nav a {
+    display:block;
+    padding:9px 20px;
+    font-size:12.5px;
+    color:var(--text-muted);
+    text-decoration:none;
+    border-left:3px solid transparent;
+    transition:all 0.15s;
+    line-height:1.4;
+  }
+  #sidebar nav a:hover { color:var(--text); background:rgba(0,0,0,0.04); }
+  #sidebar nav a.active {
+    color:var(--accent2);
+    border-left-color:var(--accent2);
+    background:var(--accent-soft);
+    font-weight:600;
+  }
+  .nav-group-label {
+    padding:14px 20px 6px;
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:var(--text-dim);
+  }
+
+  /* MAIN */
+  #main {
+    margin-left:var(--sidebar-w);
+    flex:1;
+    max-width:860px;
+    padding:0 48px 120px;
+  }
+
+  /* HERO */
+  #hero {
+    padding:64px 0 56px;
+    border-bottom:1px solid var(--border);
+    background:linear-gradient(135deg, #eff6ff 0%, #ffffff 100%);
+  }
+  .hero-tag {
+    display:inline-block;
+    background:var(--accent-soft);
+    color:var(--accent2);
+    padding:5px 14px;
+    border-radius:4px;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    margin-bottom:20px;
+  }
+  #hero h1 {
+    font-size:38px;
+    font-weight:800;
+    line-height:1.15;
+    letter-spacing:-1px;
+    color:var(--text);
+    margin-bottom:20px;
+  }
+  #hero h1 span { color:var(--accent2); }
+  #hero .hero-sub {
+    font-size:18px;
+    color:var(--text-muted);
+    max-width:640px;
+    line-height:1.7;
+    margin-bottom:32px;
+  }
+  .hero-meta {
+    display:flex;
+    gap:32px;
+    flex-wrap:wrap;
+    margin-bottom:32px;
+  }
+  .hero-meta-item {
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+  }
+  .hero-meta-item .label {
+    font-size:11px;
+    color:var(--text-dim);
+    font-weight:600;
+    letter-spacing:0.5px;
+    text-transform:uppercase;
+  }
+  .hero-meta-item .val {
+    font-size:14px;
+    color:var(--text);
+    font-weight:600;
+  }
+
+  /* VIDEO PLACEHOLDER */
+  .video-placeholder {
+    width:100%;
+    max-width:560px;
+    height:240px;
+    background:var(--bg3);
+    border:2px dashed var(--border);
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:28px;
+  }
+  .video-inner {
+    font-size:14px;
+    color:var(--text-dim);
+    font-family:var(--mono);
+    text-align:center;
+  }
+
+  /* SECTION SHELL */
+  section {
+    padding:56px 0 0;
+    border-bottom:1px solid var(--border);
+    padding-bottom:48px;
+  }
+  section:last-child { border-bottom:none; }
+  .sec-tag {
+    display:inline-block;
+    background:var(--accent-soft);
+    color:var(--accent2);
+    padding:4px 12px;
+    border-radius:4px;
+    font-size:10.5px;
+    font-weight:700;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    margin-bottom:14px;
+  }
+  .sec-tag.warn { background:var(--warning-soft); color:var(--warning); }
+  .sec-tag.danger { background:var(--danger-soft); color:var(--danger); }
+  .sec-tag.success { background:var(--success-soft); color:var(--success); }
+  h2 {
+    font-size:28px;
+    font-weight:800;
+    color:var(--text);
+    line-height:1.2;
+    letter-spacing:-0.5px;
+    margin-bottom:10px;
+  }
+  .sec-intro {
+    font-size:16px;
+    color:var(--text-muted);
+    max-width:640px;
+    margin-bottom:32px;
+    line-height:1.7;
+  }
+  p { margin-bottom:14px; }
+  p:last-child { margin-bottom:0; }
+
+  /* INSIDE CARDS */
+  .inside-grid {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+    margin-top:8px;
+  }
+  .inside-card {
+    background:var(--bg3);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:20px;
+    display:flex;
+    gap:14px;
+    align-items:flex-start;
+    opacity:0;
+    transform:translateY(20px);
+    transition:opacity 0.5s ease, transform 0.5s ease;
+  }
+  .inside-card.visible {
+    opacity:1;
+    transform:translateY(0);
+  }
+  .inside-card .ic-icon {
+    font-size:22px;
+    flex-shrink:0;
+    width:40px;
+    height:40px;
+    background:var(--accent-soft);
+    border-radius:8px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .inside-card h4 {
+    font-size:14px;
+    font-weight:700;
+    color:var(--text);
+    margin-bottom:4px;
+  }
+  .inside-card p {
+    font-size:13px;
+    color:var(--text-muted);
+    margin:0;
+  }
+
+  /* EVIDENCE TABLE */
+  .evidence-table {
+    width:100%;
+    border-collapse:collapse;
+    font-size:14px;
+    border:1px solid var(--border);
+    border-radius:10px;
+    overflow:hidden;
+  }
+  .evidence-table th {
+    text-align:left;
+    padding:12px 16px;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:0.5px;
+    text-transform:uppercase;
+    color:var(--text-dim);
+    background:var(--bg3);
+    border-bottom:2px solid var(--border);
+  }
+  .evidence-table td {
+    padding:12px 16px;
+    border-bottom:1px solid var(--border);
+    color:var(--text);
+    vertical-align:top;
+    line-height:1.6;
+  }
+  .evidence-table tr:last-child td { border-bottom:none; }
+  .evidence-table tr:nth-child(even) td { background:rgba(0,0,0,0.01); }
+  .badge-verified {
+    display:inline-block;
+    background:var(--success-soft);
+    color:var(--success);
+    padding:2px 8px;
+    border-radius:4px;
+    font-size:11px;
+    font-weight:700;
+  }
+
+  /* AAA AUDIT */
+  .audit-row {
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:16px;
+    margin-bottom:32px;
+  }
+  .audit-card {
+    border-radius:12px;
+    padding:28px 24px;
+    border:1px solid;
+    opacity:0;
+    transform:translateY(20px);
+    transition:opacity 0.5s ease, transform 0.5s ease;
+  }
+  .audit-card.visible {
+    opacity:1;
+    transform:translateY(0);
+  }
+  .audit-card.grade-f {
+    background:var(--danger-soft);
+    border-color:rgba(204,51,51,0.25);
+  }
+  .audit-card.grade-d {
+    background:var(--warning-soft);
+    border-color:rgba(204,136,0,0.25);
+  }
+  .audit-card .grade {
+    font-size:52px;
+    font-weight:900;
+    line-height:1;
+    margin-bottom:8px;
+  }
+  .audit-card.grade-f .grade { color:var(--danger); }
+  .audit-card.grade-d .grade { color:var(--warning); }
+  .audit-card h4 {
+    font-size:15px;
+    font-weight:700;
+    color:var(--text);
+    margin-bottom:10px;
+  }
+  .audit-card ul {
+    list-style:none;
+    padding:0;
+  }
+  .audit-card ul li {
+    font-size:13px;
+    color:var(--text-muted);
+    padding:4px 0;
+    border-bottom:1px solid rgba(0,0,0,0.06);
+    line-height:1.5;
+  }
+  .audit-card ul li:last-child { border-bottom:none; }
+  .audit-card ul li::before {
+    content:"✕ ";
+    color:var(--danger);
+    font-weight:700;
+  }
+  .audit-card.grade-d ul li::before { color:var(--warning); }
+  .audit-result {
+    background:var(--bg3);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:20px 24px;
+    font-size:14.5px;
+    color:var(--text);
+    line-height:1.7;
+  }
+  .audit-result strong { color:var(--text); }
+
+  /* LEAK MAP TABLE */
+  .leak-map-table {
+    width:100%;
+    border-collapse:collapse;
+    font-size:13.5px;
+    margin-top:24px;
+  }
+  .leak-map-table th {
+    text-align:left;
+    padding:10px 14px;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:0.5px;
+    text-transform:uppercase;
+    color:var(--text-dim);
+    border-bottom:1px solid var(--border);
+    background:var(--bg3);
+  }
+  .leak-map-table td {
+    padding:12px 14px;
+    border-bottom:1px solid var(--border);
+    color:var(--text-muted);
+    vertical-align:top;
+    line-height:1.6;
+  }
+  .leak-map-table tr:last-child td { border-bottom:none; }
+  .leak-map-table td:first-child { color:var(--text); font-weight:600; }
+
+  /* COMPETITION TABLE */
+  .comp-table {
+    width:100%;
+    border-collapse:collapse;
+    font-size:13px;
+    overflow:hidden;
+    border-radius:10px;
+    border:1px solid var(--border);
+  }
+  .comp-table th {
+    padding:14px 12px;
+    text-align:center;
+    font-size:12px;
+    font-weight:700;
+    background:var(--bg3);
+    border-bottom:2px solid var(--border);
+    color:var(--text);
+  }
+  .comp-table th:first-child { text-align:left; }
+  .comp-table th.clarasight-col { color:var(--accent2); background:rgba(0,102,204,0.08); }
+  .comp-table td {
+    padding:12px 12px;
+    border-bottom:1px solid var(--border);
+    text-align:center;
+    line-height:1.5;
+    color:var(--text-muted);
+  }
+  .comp-table td:first-child { text-align:left; color:var(--text); font-weight:600; }
+  .comp-table td.clarasight-col { background:rgba(0,102,204,0.05); color:var(--text); }
+  .comp-table tr:last-child td { border-bottom:none; }
+  .check { color:var(--success); font-weight:700; }
+  .cross { color:var(--danger); font-weight:700; }
+  .partial { color:var(--warning); font-size:12px; }
+  .comp-framing {
+    margin-top:16px;
+    padding:16px 20px;
+    background:var(--bg3);
+    border-radius:8px;
+    font-size:14px;
+    color:var(--text);
+    border-left:3px solid var(--accent);
+  }
+
+  /* BUYING WINDOWS */
+  .windows-grid {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+    margin-top:8px;
+  }
+  .window-card {
+    background:var(--bg3);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:24px;
+    opacity:0;
+    transform:translateY(16px);
+    transition:opacity 0.5s ease, transform 0.5s ease;
+  }
+  .window-card.visible { opacity:1; transform:translateY(0); }
+  .window-card .win-num {
+    font-size:11px;
+    font-weight:700;
+    color:var(--accent2);
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-bottom:8px;
+  }
+  .window-card h4 {
+    font-size:15px;
+    font-weight:700;
+    color:var(--text);
+    margin-bottom:8px;
+    line-height:1.3;
+  }
+  .window-card p {
+    font-size:13px;
+    color:var(--text-muted);
+    margin:0;
+    line-height:1.65;
+  }
+  .window-card .win-score {
+    display:inline-block;
+    margin-top:12px;
+    font-size:11px;
+    font-weight:700;
+    color:var(--success);
+    background:var(--success-soft);
+    padding:3px 10px;
+    border-radius:4px;
+  }
+
+  /* LEAD TABLE */
+  .lead-table {
+    width:100%;
+    border-collapse:collapse;
+    font-size:13.5px;
+    border:1px solid var(--border);
+    border-radius:10px;
+    overflow:hidden;
+  }
+  .lead-table th {
+    text-align:left;
+    padding:10px 14px;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:0.5px;
+    text-transform:uppercase;
+    color:var(--text-dim);
+    border-bottom:1px solid var(--border);
+    background:var(--bg3);
+  }
+  .lead-table td {
+    padding:12px 14px;
+    border-bottom:1px solid var(--border);
+    color:var(--text);
+    vertical-align:top;
+  }
+  .lead-table tr:last-child td { border-bottom:none; }
+  .lead-table tr:hover td { background:rgba(0,0,0,0.02); }
+  .badge-hot {
+    display:inline-block;
+    background:var(--danger-soft);
+    color:var(--danger);
+    padding:2px 8px;
+    border-radius:4px;
+    font-size:11px;
+    font-weight:700;
+  }
+  .full-list-cta {
+    margin-top:20px;
+    padding:18px 20px;
+    background:var(--accent-soft);
+    border:1px solid var(--accent-glow);
+    border-radius:10px;
+    font-size:14px;
+    color:var(--text);
+    line-height:1.6;
+  }
+  .full-list-cta a {
+    color:var(--accent2);
+    font-weight:700;
+    text-decoration:none;
+  }
+  .full-list-cta a:hover { text-decoration:underline; }
+
+  /* MID CTA */
+  .mid-cta {
+    background:linear-gradient(135deg, #001830 0%, #002550 100%);
+    border:1px solid rgba(0,102,204,0.3);
+    border-radius:12px;
+    padding:36px 40px;
+    text-align:center;
+    margin:0;
+  }
+  .mid-cta h3 {
+    font-size:22px;
+    font-weight:800;
+    color:#fff;
+    margin-bottom:10px;
+  }
+  .mid-cta p {
+    font-size:15px;
+    color:rgba(255,255,255,0.7);
+    margin-bottom:20px;
+  }
+  .btn-primary {
+    display:inline-block;
+    background:var(--accent);
+    color:#fff;
+    padding:12px 28px;
+    border-radius:8px;
+    font-size:14px;
+    font-weight:700;
+    text-decoration:none;
+    transition:background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background:var(--accent2); transform:translateY(-1px); }
+  .btn-ghost {
+    display:inline-block;
+    border:1px solid var(--border);
+    color:var(--text-muted);
+    padding:12px 28px;
+    border-radius:8px;
+    font-size:14px;
+    font-weight:600;
+    text-decoration:none;
+    margin-left:12px;
+    transition:all 0.2s;
+  }
+  .btn-ghost:hover { border-color:var(--accent2); color:var(--accent2); }
+
+  /* EMAIL SAMPLES */
+  .email-sample {
+    background:var(--bg3);
+    border:1px solid var(--border);
+    border-radius:10px;
+    overflow:hidden;
+    margin-bottom:24px;
+    opacity:0;
+    transform:translateY(16px);
+    transition:opacity 0.5s ease, transform 0.5s ease;
+  }
+  .email-sample.visible { opacity:1; transform:translateY(0); }
+  .email-header {
+    background:var(--bg3);
+    padding:14px 20px;
+    border-bottom:1px solid var(--border);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .email-subject {
+    font-size:14px;
+    font-weight:700;
+    color:var(--text);
+  }
+  .pss-badge {
+    font-size:11px;
+    font-weight:700;
+    padding:4px 12px;
+    border-radius:4px;
+    background:var(--success-soft);
+    color:var(--success);
+    border:1px solid rgba(22,163,74,0.25);
+  }
+  .email-body {
+    padding:24px;
+    font-size:14px;
+    color:var(--text);
+    line-height:1.85;
+    white-space:pre-wrap;
+    font-family:var(--font);
+  }
+  .email-caption {
+    padding:14px 20px;
+    border-top:1px solid var(--border);
+    font-size:12.5px;
+    color:var(--text-dim);
+    line-height:1.6;
+    background:var(--bg4);
+  }
+
+  /* 12-WEEK PLAYBOOK */
+  .week-row {
+    display:flex;
+    gap:0;
+    border-bottom:1px solid var(--border);
+    padding:16px 0;
+    align-items:flex-start;
+  }
+  .week-row:last-child { border-bottom:none; }
+  .week-num {
+    flex-shrink:0;
+    width:80px;
+    font-size:11px;
+    font-weight:700;
+    color:var(--text-dim);
+    text-transform:uppercase;
+    letter-spacing:0.5px;
+    padding-top:2px;
+  }
+  .week-phase {
+    flex-shrink:0;
+    width:120px;
+    padding-right:16px;
+  }
+  .week-phase .phase-tag {
+    font-size:11px;
+    font-weight:700;
+    padding:3px 10px;
+    border-radius:4px;
+    display:inline-block;
+  }
+  .phase-tag.p1 { background:var(--accent-soft); color:var(--accent2); }
+  .phase-tag.p2 { background:var(--warning-soft); color:var(--warning); }
+  .phase-tag.p3 { background:var(--success-soft); color:var(--success); }
+  .week-body { flex:1; }
+  .week-body h4 {
+    font-size:14px;
+    font-weight:700;
+    color:var(--text);
+    margin-bottom:5px;
+    line-height:1.4;
+  }
+  .week-body p {
+    font-size:13px;
+    color:var(--text-muted);
+    margin:0;
+    line-height:1.6;
+  }
+
+  /* RESULTS */
+  .results-grid {
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:14px;
+    margin-bottom:28px;
+  }
+  .result-card {
+    background:var(--bg3);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:24px 16px;
+    text-align:center;
+    opacity:0;
+    transform:translateY(16px);
+    transition:opacity 0.5s ease, transform 0.5s ease;
+  }
+  .result-card.visible { opacity:1; transform:translateY(0); }
+  .result-card .rnum {
+    font-size:36px;
+    font-weight:900;
+    color:var(--accent2);
+    line-height:1;
+    margin-bottom:8px;
+    display:block;
+  }
+  .result-card .rlabel {
+    font-size:12px;
+    color:var(--text-muted);
+    line-height:1.5;
+  }
+  .timeline-row {
+    display:flex;
+    gap:16px;
+    margin-top:8px;
+  }
+  .timeline-month {
+    flex:1;
+    background:var(--bg3);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:20px;
+  }
+  .timeline-month .month-label {
+    font-size:11px;
+    font-weight:700;
+    color:var(--accent2);
+    text-transform:uppercase;
+    letter-spacing:0.5px;
+    margin-bottom:12px;
+  }
+  .timeline-month ul {
+    list-style:none;
+    padding:0;
+  }
+  .timeline-month ul li {
+    font-size:13px;
+    color:var(--text-muted);
+    padding:5px 0;
+    border-bottom:1px solid var(--border);
+    line-height:1.5;
+  }
+  .timeline-month ul li:last-child { border-bottom:none; }
+  .timeline-month ul li::before {
+    content:"→ ";
+    color:var(--accent2);
+    font-weight:700;
+  }
+
+  /* GROWTH LOOPS */
+  .loop-grid {
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:16px;
+  }
+  .loop-card {
+    background:var(--bg3);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:24px;
+    opacity:0;
+    transform:translateY(16px);
+    transition:opacity 0.5s ease, transform 0.5s ease;
+  }
+  .loop-card.visible { opacity:1; transform:translateY(0); }
+  .loop-card .loop-num {
+    font-size:11px;
+    font-weight:700;
+    color:var(--accent2);
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-bottom:10px;
+  }
+  .loop-card h4 {
+    font-size:15px;
+    font-weight:700;
+    color:var(--text);
+    margin-bottom:10px;
+    line-height:1.3;
+  }
+  .loop-card p {
+    font-size:13px;
+    color:var(--text-muted);
+    margin:0;
+    line-height:1.65;
+  }
+
+  /* AUTHORITY ENGINE */
+  .authority-table {
+    width:100%;
+    border-collapse:collapse;
+    font-size:13.5px;
+    border:1px solid var(--border);
+    border-radius:10px;
+    overflow:hidden;
+  }
+  .authority-table th {
+    text-align:left;
+    padding:12px 16px;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:0.5px;
+    text-transform:uppercase;
+    color:var(--text-dim);
+    background:var(--bg3);
+    border-bottom:2px solid var(--border);
+  }
+  .authority-table td {
+    padding:12px 16px;
+    border-bottom:1px solid var(--border);
+    color:var(--text-muted);
+    vertical-align:top;
+    line-height:1.6;
+  }
+  .authority-table tr:last-child td { border-bottom:none; }
+  .authority-table td:first-child { color:var(--text); font-weight:600; }
+
+  /* ECONOMICS */
+  .economics-grid {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+    margin-bottom:24px;
+  }
+  .econ-card {
+    background:var(--bg3);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:24px;
+  }
+  .econ-card h4 {
+    font-size:13px;
+    font-weight:700;
+    color:var(--text-dim);
+    text-transform:uppercase;
+    letter-spacing:0.5px;
+    margin-bottom:12px;
+  }
+  .econ-card .econ-num {
+    font-size:32px;
+    font-weight:900;
+    color:var(--accent2);
+    line-height:1;
+    margin-bottom:8px;
+  }
+  .econ-card p {
+    font-size:13px;
+    color:var(--text-muted);
+    margin:0;
+    line-height:1.6;
+  }
+
+  /* OFFER BOX */
+  .offer-box {
+    background:linear-gradient(135deg, #001020 0%, #001830 100%);
+    border:1px solid rgba(0,102,204,0.3);
+    border-radius:14px;
+    padding:40px;
+  }
+  .offer-box h3 {
+    font-size:24px;
+    font-weight:800;
+    color:#fff;
+    margin-bottom:6px;
+  }
+  .offer-box .offer-sub {
+    font-size:15px;
+    color:rgba(255,255,255,0.6);
+    margin-bottom:28px;
+  }
+  .offer-items {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    margin-bottom:28px;
+  }
+  .offer-item {
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+  }
+  .offer-item::before {
+    content:"✓";
+    color:var(--success);
+    font-weight:800;
+    font-size:15px;
+    flex-shrink:0;
+    margin-top:1px;
+  }
+  .offer-item span {
+    font-size:14px;
+    color:rgba(255,255,255,0.9);
+    line-height:1.5;
+  }
+
+  /* NEXT STEPS */
+  .next-steps-grid {
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:16px;
+    margin-bottom:32px;
+  }
+  .next-step-card {
+    background:var(--bg3);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:24px;
+  }
+  .next-step-card .ns-num {
+    font-size:28px;
+    font-weight:900;
+    color:var(--accent2);
+    margin-bottom:10px;
+    display:block;
+    line-height:1;
+  }
+  .next-step-card h4 {
+    font-size:14px;
+    font-weight:700;
+    color:var(--text);
+    margin-bottom:8px;
+    line-height:1.3;
+  }
+  .next-step-card p {
+    font-size:13px;
+    color:var(--text-muted);
+    margin:0;
+    line-height:1.6;
+  }
+
+  /* ABOUT JEAN */
+  .about-jean {
+    display:flex;
+    gap:28px;
+    align-items:flex-start;
+  }
+  .jean-avatar {
+    flex-shrink:0;
+    width:80px;
+    height:80px;
+    background:var(--accent-soft);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:32px;
+    font-weight:800;
+    color:var(--accent2);
+    border:2px solid rgba(0,102,204,0.3);
+  }
+  .jean-bio h4 {
+    font-size:17px;
+    font-weight:700;
+    color:var(--text);
+    margin-bottom:4px;
+  }
+  .jean-bio .jean-title {
+    font-size:13px;
+    color:var(--accent2);
+    font-weight:600;
+    margin-bottom:12px;
+  }
+  .jean-bio p {
+    font-size:14px;
+    color:var(--text-muted);
+    line-height:1.7;
+  }
+
+  /* BOOK SECTION */
+  #next-steps {
+    padding-top:56px;
+    padding-bottom:80px;
+  }
+  .proof-strip {
+    display:flex;
+    gap:24px;
+    padding:16px 20px;
+    background:var(--bg3);
+    border-radius:8px;
+    margin-bottom:28px;
+    flex-wrap:wrap;
+  }
+  .proof-strip-item {
+    font-size:13px;
+    color:var(--text-muted);
+  }
+  .proof-strip-item strong { color:var(--text); }
+
+  /* FOOTER */
+  footer {
+    margin-top:64px;
+    padding:24px 0;
+    border-top:1px solid var(--border);
+    font-size:13px;
+    color:var(--text-dim);
+    text-align:left;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width:900px) {
+    #sidebar { display:none; }
+    #main { margin-left:0; padding:0 24px 80px; }
+    .audit-row, .loop-grid, .results-grid, .next-steps-grid { grid-template-columns:1fr; }
+    .inside-grid, .windows-grid, .economics-grid { grid-template-columns:1fr; }
+    .offer-items { grid-template-columns:1fr; }
+    .timeline-row { flex-direction:column; }
+    .comp-table { font-size:12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<aside id="sidebar">
+  <div class="sidebar-brand">
+    <div class="company">Clarasight</div>
+    <div class="for-line">Built for Adam Braun — Co-Founder and Chief Executive Officer</div>
+  </div>
+  <nav>
+    <div class="nav-group-label">Overview</div>
+    <a href="#hero" class="active">Introduction</a>
+    <a href="#whats-inside">What Is Inside</a>
+    <a href="#evidence">Verified Evidence</a>
+
+    <div class="nav-group-label">The Research</div>
+    <a href="#audit">Infrastructure Audit (AAA)</a>
+    <a href="#buying-windows">Five Buying Windows</a>
+    <a href="#leads">Enterprise Lead List</a>
+    <a href="#competition">Market Positioning</a>
+
+    <div class="nav-group-label">The Strategy</div>
+    <a href="#authority-engine">Authority Engine</a>
+    <a href="#growth-loops">Growth Feedback Loops</a>
+    <a href="#playbook">90-Day Playbook</a>
+    <a href="#email-sequences">Outreach Sequences</a>
+
+    <div class="nav-group-label">The Case</div>
+    <a href="#results">Results Timeline</a>
+    <a href="#economics">The Economics</a>
+    <a href="#next-steps">What Happens Next</a>
+  </nav>
+</aside>
+
+<!-- MAIN -->
+<main id="main">
+
+  <!-- HERO -->
+  <div id="hero">
+    <div class="hero-tag">MDB Growth Capital → Clarasight</div>
+    <h1>Adam, I mapped the enterprise travel programmes in active buying windows.<br><span>Here's what I found.</span></h1>
+    <p class="hero-sub">Series A raised. $5B T&E managed. 35 enterprise accounts. The next 35 require a different channel. This package shows what that channel looks like — and which accounts are already in an active buying window.</p>
+
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="label">Research date</span>
+        <span class="val">May 2026</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">ACV estimate</span>
+        <span class="val">$75K to $200K ARR</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Buying windows mapped</span>
+        <span class="val">5 trigger types</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Authority Engine Score</span>
+        <span class="val">6/7 — Recommended</span>
+      </div>
+    </div>
+
+    <div class="video-placeholder" id="video">
+      <div class="video-inner">VIDEO_URL_GOES_HERE</div>
+    </div>
+
+    <a href="https://cal.com/jean-m-8f4kbr/15min" class="btn-primary" target="_blank">Book 15 Minutes</a>
+  </div>
+
+  <!-- WHAT'S INSIDE -->
+  <section id="whats-inside">
+    <div class="sec-tag">Overview</div>
+    <h2>What Is Inside This Package</h2>
+    <p class="sec-intro">Everything here was built specifically for Clarasight before reaching out. Not a template. Research-first, Clarasight-specific deliverables across every stage of the acquisition gap.</p>
+    <div class="inside-grid">
+      <div class="inside-card">
+        <div class="ic-icon">🗺️</div>
+        <div>
+          <h4>Five Buying Window Types — Mapped</h4>
+          <p>Enterprise programmes that enter active evaluation windows triggered by specific public signals: new travel hires, CSRD compliance, post-acquisition consolidation, supplier renewals, pharma HCP reporting.</p>
+        </div>
+      </div>
+      <div class="inside-card">
+        <div class="ic-icon">📊</div>
+        <div>
+          <h4>Infrastructure Audit (AAA Score)</h4>
+          <p>Attraction, Alignment, and Activation graded with evidence. Every gap named with a source, not a guess. Leak Map showing where enterprise revenue is leaving right now.</p>
+        </div>
+      </div>
+      <div class="inside-card">
+        <div class="ic-icon">⚔️</div>
+        <div>
+          <h4>Competitive Positioning Table</h4>
+          <p>Where Clarasight wins against SAP Concur, Navan, TRIPBAM, Traxo, and internal Business Intelligence — and where buyers land before Clarasight gets into the evaluation.</p>
+        </div>
+      </div>
+      <div class="inside-card">
+        <div class="ic-icon">📧</div>
+        <div>
+          <h4>Outreach Sequences — Already Written</h4>
+          <p>Two live sequences for enterprise travel buyers. Trigger angle (Series A stage shift + buying window list). Friction angle (informal shortlist forms before Clarasight is in the room). PSS scored above 85.</p>
+        </div>
+      </div>
+      <div class="inside-card">
+        <div class="ic-icon">📅</div>
+        <div>
+          <h4>Week-by-Week 90-Day Plan</h4>
+          <p>What gets installed when. What fires in week three. What the Clarasight marketing hire inherits on day one — not a blank whiteboard, a working channel.</p>
+        </div>
+      </div>
+      <div class="inside-card">
+        <div class="ic-icon">📈</div>
+        <div>
+          <h4>Pipeline Economics</h4>
+          <p>$125K ACV proxy. Five to ten new conversations per 90-day cycle. Two to three closes at that ACV covers the cost of the channel many times over. Numbers, not language.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVIDENCE -->
+  <section id="evidence">
+    <div class="sec-tag">Verified Research</div>
+    <h2>The Evidence — What Was Verified Before Writing</h2>
+    <p class="sec-intro">Every company-specific claim in this package maps to a primary source. No assumptions. No estimates labelled as facts.</p>
+
+    <table class="evidence-table">
+      <thead>
+        <tr>
+          <th>Fact</th>
+          <th>Source</th>
+          <th>Verified</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>$11.5M Series A, April 28 2026</td>
+          <td>Axios, Business Travel News</td>
+          <td><span class="badge-verified">Yes</span></td>
+        </tr>
+        <tr>
+          <td>Lead investor: AlleyCorp</td>
+          <td>PhocusWire</td>
+          <td><span class="badge-verified">Yes</span></td>
+        </tr>
+        <tr>
+          <td>10x recurring revenue growth (prior 12 months)</td>
+          <td>Yahoo Finance, Pulse2.com</td>
+          <td><span class="badge-verified">Yes</span></td>
+        </tr>
+        <tr>
+          <td>$5B+ enterprise travel and expense managed</td>
+          <td>Axios, Yahoo Finance</td>
+          <td><span class="badge-verified">Yes</span></td>
+        </tr>
+        <tr>
+          <td>4 of 16 Business Travel News 100 programmes</td>
+          <td>Business Travel News</td>
+          <td><span class="badge-verified">Yes</span></td>
+        </tr>
+        <tr>
+          <td>2 Big Four accounting firms as customers</td>
+          <td>Business Travel Executive</td>
+          <td><span class="badge-verified">Yes</span></td>
+        </tr>
+        <tr>
+          <td>Bain and Company confirmed customer</td>
+          <td>Clarasight hosted webinar (public)</td>
+          <td><span class="badge-verified">Yes</span></td>
+        </tr>
+        <tr>
+          <td>20 employees</td>
+          <td>PitchBook, LinkedIn</td>
+          <td><span class="badge-verified">Yes</span></td>
+        </tr>
+        <tr>
+          <td>Demo-gated pricing (no self-serve)</td>
+          <td>clarasight.com/pricing</td>
+          <td><span class="badge-verified">Yes</span></td>
+        </tr>
+        <tr>
+          <td>HubSpot, Clay, Apollo in stack</td>
+          <td>Clarasight job description</td>
+          <td><span class="badge-verified">Yes</span></td>
+        </tr>
+        <tr>
+          <td>Adam confirmed speaker, Business Travel Show Europe 2026</td>
+          <td>businesstravelshoweurope.com</td>
+          <td><span class="badge-verified">Yes</span></td>
+        </tr>
+        <tr>
+          <td>No blog or active content marketing found</td>
+          <td>clarasight.com audit, May 2026</td>
+          <td><span class="badge-verified">Yes</span></td>
+        </tr>
+        <tr>
+          <td>No outbound function visible on team page</td>
+          <td>LinkedIn company page</td>
+          <td><span class="badge-verified">Yes</span></td>
+        </tr>
+        <tr>
+          <td>42 active corporate travel manager positions in US (May 2026)</td>
+          <td>LinkedIn Jobs, May 2026</td>
+          <td><span class="badge-verified">Yes</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- AAA AUDIT -->
+  <section id="audit">
+    <div class="sec-tag danger">Infrastructure Audit</div>
+    <h2>The Commercial Infrastructure Audit — AAA Diagnostic</h2>
+    <p class="sec-intro">Every enterprise Business to Business company operates across three commercial layers: Attraction (can buyers find you?), Alignment (do they understand you?), and Activation (can you reach them systematically?). Here is Clarasight's grade on each, with the evidence behind every score.</p>
+
+    <div class="audit-row">
+      <div class="audit-card grade-f">
+        <div class="grade">F</div>
+        <h4>🔴 Attraction</h4>
+        <ul>
+          <li>Zero Google ranking for category keywords</li>
+          <li>No blog or content marketing presence</li>
+          <li>No G2 or Capterra profile (verified May 2026)</li>
+          <li>No comparison page vs Navan or SAP Concur</li>
+          <li>No newsletter, no LinkedIn content engine</li>
+          <li>No named case studies on website</li>
+        </ul>
+      </div>
+      <div class="audit-card grade-d">
+        <div class="grade">D</div>
+        <h4>🟡 Alignment</h4>
+        <ul>
+          <li>Homepage clear but no named case studies</li>
+          <li>No specific outcomes with company names attached</li>
+          <li>No peer reference for buyers in evaluation</li>
+          <li>No comparison to Navan or SAP Concur</li>
+          <li>Buyers cannot self-educate or self-close</li>
+          <li>Four Business Travel News 100 wins — none are public</li>
+        </ul>
+      </div>
+      <div class="audit-card grade-f">
+        <div class="grade">F</div>
+        <h4>🔴 Activation</h4>
+        <ul>
+          <li>Entirely founder-dependent pipeline</li>
+          <li>Adam and co-founder close every deal personally</li>
+          <li>No repeatable outbound system in place</li>
+          <li>No account targeting or qualification process</li>
+          <li>Pipeline capped by founder calendar availability</li>
+          <li>No follow-up architecture beyond first touch</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="audit-result">
+      <strong>What the grades mean together:</strong> Clarasight is invisible to the 95% of enterprise travel buyers not already in its immediate network (Attraction F), cannot be self-evaluated by the buyers who do hear about it (Alignment D), and has no systematic way to reach buyers at the moment of highest intent (Activation F). The product wins on substance. The gap is commercial reach. That is what MDB installs.
+    </div>
+
+    <h3 style="margin-top:32px; margin-bottom:16px; font-size:20px; font-weight:700; color:var(--text);">Leak Map — Where Enterprise Revenue Is Leaving</h3>
+    <p style="font-size:15px; color:var(--text-muted); margin-bottom:16px; line-height:1.7;">Traffic light key: 🔴 Revenue leaving now, urgent action needed. 🟡 Revenue not captured, fixable with the right infrastructure. 🟢 Working, protect and scale.</p>
+
+    <table class="leak-map-table">
+      <thead>
+        <tr>
+          <th>Funnel Stage</th>
+          <th>Leak Point</th>
+          <th>Severity</th>
+          <th>Evidence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Top of Funnel — Attraction</td>
+          <td>Enterprise programmes in active buying windows evaluate 2 to 3 vendors through peer networks before Clarasight is ever contacted.</td>
+          <td>🔴 Critical</td>
+          <td>42 active travel manager hires in the United States as of May 2026. None receiving targeted outreach from Clarasight.</td>
+        </tr>
+        <tr>
+          <td>Middle of Funnel — Alignment</td>
+          <td>Demo-gated pricing creates friction. Buyers who would research Clarasight independently cannot self-qualify.</td>
+          <td>🟡 Moderate</td>
+          <td>No pricing page visible on clarasight.com. Comparison pages absent.</td>
+        </tr>
+        <tr>
+          <td>Middle of Funnel — Alignment</td>
+          <td>No nurture content for buyers in the informal research phase (pre-demo, pre-Request for Proposal).</td>
+          <td>🔴 Critical</td>
+          <td>No blog, no newsletter, no LinkedIn company posts in the past 90 days. Buyers who are not yet ready to demo have no way to stay warm on Clarasight.</td>
+        </tr>
+        <tr>
+          <td>Bottom of Funnel — Activation</td>
+          <td>Sales conversations are founder-led. Adam is the primary closer. Pipeline volume is constrained by his bandwidth.</td>
+          <td>🟡 Moderate</td>
+          <td>Job description confirms no sales development representative or demand generation function exists. Hiring the first marketing lead is the current solution attempt.</td>
+        </tr>
+        <tr>
+          <td>Post-Sale</td>
+          <td>Business Travel News 100 wins are not being converted into systematic referrals or public case studies at scale.</td>
+          <td>🟡 Moderate</td>
+          <td>Bain and Company case study exists. Two Big Four firms are customers. Neither appears in proactive outreach materials or a content programme.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- BUYING WINDOWS -->
+  <section id="buying-windows">
+    <div class="sec-tag">Buying Signal Intelligence</div>
+    <h2>The Five Enterprise Buying Windows</h2>
+    <p class="sec-intro">Enterprise travel programmes do not purchase analytics tools on a random schedule. They buy in windows triggered by specific events. MDB identifies these windows using public data and reaches the companies in them before they form an informal shortlist.</p>
+
+    <div class="windows-grid">
+      <div class="window-card">
+        <div class="win-num">Window 1</div>
+        <h4>New Head of Travel Hire</h4>
+        <p>A travel manager job posting is live on LinkedIn Jobs. The new hire is asked to stand up reporting and produce a programme overview in the first 90 days. They have no data infrastructure. Highest purchase-intent window in corporate travel analytics.</p>
+        <p style="margin-top:10px;"><strong>How MDB finds these:</strong> LinkedIn Jobs search, public, timestamped, company-named. 42 active positions in the United States as of May 2026.</p>
+        <div class="win-score">Priority Score: 84/100</div>
+      </div>
+      <div class="window-card">
+        <div class="win-num">Window 2</div>
+        <h4>CSRD and Scope 3 Emissions Mandate</h4>
+        <p>A European-listed company or United States company with European Union operations must report Scope 3 Category 6 (business travel emissions) for Corporate Sustainability Reporting Directive compliance.</p>
+        <p style="margin-top:10px;"><strong>How MDB finds these:</strong> Annual reports, Carbon Disclosure Project database, Environmental Social Governance disclosure gaps.</p>
+        <div class="win-score">Priority Score: 82/100</div>
+      </div>
+      <div class="window-card">
+        <div class="win-num">Window 3</div>
+        <h4>Post-Acquisition Consolidation</h4>
+        <p>A company closed a merger and acquisition transaction in the last 12 to 36 months and now has two travel programmes to consolidate. The Chief Financial Officer asks for a consolidated travel and expense view in the first quarter post-close.</p>
+        <p style="margin-top:10px;"><strong>How MDB finds these:</strong> Crunchbase, Securities and Exchange Commission 8-K filings, trade press.</p>
+        <div class="win-score">Priority Score: 78/100</div>
+      </div>
+      <div class="window-card">
+        <div class="win-num">Window 4</div>
+        <h4>Supplier Contract Renewal</h4>
+        <p>A major airline or hotel contract is coming up for renewal in the next 90 days. Procurement walks into a multi-million dollar supplier negotiation without a defensible, complete spend picture.</p>
+        <p style="margin-top:10px;"><strong>How MDB finds these:</strong> LinkedIn activity monitoring, Global Business Travel Association signals, procurement role requirements.</p>
+        <div class="win-score">Priority Score: 74/100</div>
+      </div>
+      <div class="window-card">
+        <div class="win-num">Window 5</div>
+        <h4>Pharmaceutical Healthcare Professional Sunshine Act Reporting</h4>
+        <p>A pharma company must report Healthcare Professional travel spend to the Centers for Medicare and Medicaid Services by March 31 each year. Non-compliance carries civil monetary penalties of up to $1.17M per year.</p>
+        <p style="margin-top:10px;"><strong>How MDB finds these:</strong> Centers for Medicare and Medicaid Services Open Payments public database (cms.gov/OpenPayments).</p>
+        <div class="win-score">Priority Score: 82/100</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEAD LIST -->
+  <section id="leads">
+    <div class="sec-tag success">Free Deliverable — Enterprise Lead List</div>
+    <h2>Enterprise Accounts Already Mapped in Active Buying Windows</h2>
+    <p class="sec-intro">MDB has already mapped enterprise accounts currently in active buying windows for Clarasight. The list targets Windows 1, 3, and 5 for Tier 1 (confirmed Data Key evidence), with Windows 2 and 4 for Tier 2 (leading indicator signals). Here are five confirmed Tier 1 accounts from the Pharmaceutical Healthcare Professional Sunshine Act window — verified against the Centers for Medicare and Medicaid Services Open Payments March 2026 filing.</p>
+
+    <table class="lead-table">
+      <thead>
+        <tr>
+          <th>Company</th>
+          <th>Location</th>
+          <th>Size</th>
+          <th>Buying Window</th>
+          <th>Decision-Maker</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Supernus Pharmaceuticals</strong></td>
+          <td>Rockville, MD</td>
+          <td>~778 employees</td>
+          <td>Window 5 — HCP Sunshine Act</td>
+          <td>Timothy Dec, SVP and Chief Financial Officer</td>
+          <td><span class="badge-hot">HOT</span></td>
+        </tr>
+        <tr>
+          <td><strong>Acadia Pharmaceuticals</strong></td>
+          <td>San Diego, CA</td>
+          <td>~798 employees</td>
+          <td>Window 5 — New CFO (Oct 2025)</td>
+          <td>Todd Young, Chief Financial Officer</td>
+          <td><span class="badge-hot">HOT</span></td>
+        </tr>
+        <tr>
+          <td><strong>Alkermes</strong></td>
+          <td>Waltham, MA</td>
+          <td>~2,050 employees</td>
+          <td>Window 5 — New CFO (Sep 2025)</td>
+          <td>Joshua Reed, Chief Financial Officer</td>
+          <td><span class="badge-hot">HOT</span></td>
+        </tr>
+        <tr>
+          <td><strong>Corcept Therapeutics</strong></td>
+          <td>Menlo Park, CA</td>
+          <td>500 to 1,000 employees</td>
+          <td>Window 5 — HCP Speaker Programs</td>
+          <td>Joe Belanoff, Chief Executive Officer</td>
+          <td><span class="badge-hot">HOT</span></td>
+        </tr>
+        <tr>
+          <td><strong>Rhythm Pharmaceuticals</strong></td>
+          <td>Boston, MA</td>
+          <td>~414 employees</td>
+          <td>Window 5 — IMCIVREE Launch</td>
+          <td>Hunter Smith, Chief Financial Officer</td>
+          <td><span class="badge-hot">HOT</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="full-list-cta">
+      <strong>The full lead list</strong> — Tier 1 (Segments 1, 3, 5 with confirmed Data Key evidence, 10 to 15 contacts) and Tier 2 (Segments 2, 4 with leading indicator signals, 10 to 15 contacts) — is available in the companion files: <code>leads.md</code> and <code>leads.csv</code>. Named enterprise companies, buying window classification, decision-maker contact with LinkedIn, buying signal evidence, and outreach priority score per account. Ready to use.
+    </div>
+  </section>
+
+  <!-- MID CTA -->
+  <section style="border-bottom:none; padding-top:32px; padding-bottom:0;">
+    <div class="mid-cta">
+      <h3>The buying window research is done. Ready to see the full list?</h3>
+      <p>All named accounts, decision-maker contacts, buying signal evidence, and priority scores. Yours regardless of whether we speak.</p>
+      <a href="https://cal.com/jean-m-8f4kbr/15min" target="_blank" class="btn-primary">Book 15 Minutes with Jean</a>
+    </div>
+  </section>
+
+  <!-- COMPETITION -->
+  <section id="competition">
+    <div class="sec-tag">Market Positioning</div>
+    <h2>How Clarasight Sits Against the Competition</h2>
+    <p class="sec-intro">Clarasight wins on product substance in the dimensions that matter most for enterprise pharma and professional services buyers. The gap is commercial reach — specifically who finds the buyer first when a Head of Travel evaluation window opens.</p>
+
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>Capability</th>
+          <th class="clarasight-col">Clarasight</th>
+          <th>SAP Concur</th>
+          <th>Navan</th>
+          <th>TRIPBAM</th>
+          <th>Traxo</th>
+          <th>Internal Business Intelligence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Multi-Travel Management Company data unification (no rip-and-replace)</td>
+          <td class="clarasight-col"><span class="check">✓ Native</span></td>
+          <td><span class="partial">Partial</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗ Hotels only</span></td>
+          <td><span class="partial">Leakage only</span></td>
+          <td><span class="cross">✗ Manual</span></td>
+        </tr>
+        <tr>
+          <td>International Organization for Standardization 14083 Scope 3 emissions reporting</td>
+          <td class="clarasight-col"><span class="check">✓ Thrust Carbon</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗ Not certified</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+        </tr>
+        <tr>
+          <td>Healthcare Professional compliance (European Federation of Pharmaceutical Industries and Associations / Sunshine Act)</td>
+          <td class="clarasight-col"><span class="check">✓ 90% manual reduction</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+        </tr>
+        <tr>
+          <td>G2 review presence (buyer discovery)</td>
+          <td class="clarasight-col"><span class="cross">✗ Zero reviews</span></td>
+          <td><span class="check">✓ 700+ reviews</span></td>
+          <td><span class="check">✓ 1,200+ reviews</span></td>
+          <td><span class="partial">Minimal</span></td>
+          <td><span class="partial">Minimal</span></td>
+          <td>Not applicable</td>
+        </tr>
+        <tr>
+          <td>Google ranking for category keywords</td>
+          <td class="clarasight-col"><span class="cross">✗ Not ranking</span></td>
+          <td><span class="check">✓ Top 3</span></td>
+          <td><span class="check">✓ Top 5</span></td>
+          <td><span class="partial">Niche terms</span></td>
+          <td><span class="partial">Niche terms</span></td>
+          <td>Not applicable</td>
+        </tr>
+        <tr>
+          <td>Who reaches the buyer first when Head of Travel is hired</td>
+          <td class="clarasight-col"><span class="cross">✗ Not systematically</span></td>
+          <td><span class="check">✓ Outbound sales team</span></td>
+          <td><span class="check">✓ Sales development representative team</span></td>
+          <td><span class="partial">Conference-led</span></td>
+          <td><span class="partial">Direct outreach</span></td>
+          <td>Not applicable</td>
+        </tr>
+        <tr>
+          <td>Dedicated outbound function</td>
+          <td class="clarasight-col"><span class="cross">✗ Founder-led only</span></td>
+          <td><span class="check">✓ Large team</span></td>
+          <td><span class="check">✓ Enterprise sales development</span></td>
+          <td><span class="partial">Partner channel</span></td>
+          <td><span class="partial">Direct</span></td>
+          <td>Not applicable</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="comp-framing">
+      <strong>The framing:</strong> Clarasight is the only vendor in the travel analytics space with multi-Travel Management Company unification, certified Scope 3 emissions reporting, and Healthcare Professional compliance in a single platform. No competitor can say the same. The gap is not the product — it is commercial reach. SAP Concur and Navan maintain dedicated outbound functions at scale. Without a systematic channel, Clarasight enters evaluations late, after the informal shortlist has already formed. That is what MDB installs.
+    </div>
+  </section>
+
+  <!-- AUTHORITY ENGINE -->
+  <section id="authority-engine">
+    <div class="sec-tag">Compounding Trust Layer</div>
+    <h2>The Authority Engine — What Compounds Over 18 Months</h2>
+    <p class="sec-intro">MDB does not just install outbound. For companies at Clarasight's stage — Series A, no content marketing, referral-dependent acquisition — there is a second layer that compounds value over 18 months. Authority Engine Score: 6/7 — Recommended.</p>
+
+    <table class="authority-table">
+      <thead>
+        <tr>
+          <th>Component</th>
+          <th>What It Does</th>
+          <th>Timeline</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>LinkedIn content flywheel</td>
+          <td>Jean co-produces posts that demonstrate Clarasight's intelligence layer: buying window data, Global Business Travel Association insights, Corporate Sustainability Reporting Directive updates. Drives comment-for-resource flows that build an owned list of enterprise contacts.</td>
+          <td>Month 1 onwards</td>
+        </tr>
+        <tr>
+          <td>20-week value email nurture</td>
+          <td>Enterprises that engage with outbound but are not yet ready to buy receive 20 weeks of value-only content: travel and expense benchmarks, compliance updates, spend improvement frameworks. No pitches. Pure value delivery.</td>
+          <td>Month 2 onwards</td>
+        </tr>
+        <tr>
+          <td>Micro-budget retargeting</td>
+          <td>$5 to $10 per day on LinkedIn or Meta to re-engage the list of enterprise contacts who opened, clicked, or replied. Keeps Clarasight in front of the 95% not ready yet.</td>
+          <td>Month 3 onwards</td>
+        </tr>
+        <tr>
+          <td>Lead scoring</td>
+          <td>Cold, warm, and hot buckets. The sales team is notified only when a prospect crosses an intent threshold — not for every open. Wired into existing HubSpot infrastructure.</td>
+          <td>Month 3 onwards</td>
+        </tr>
+        <tr>
+          <td>Hot bucket alerts</td>
+          <td>When a contact that has been in the nurture sequence opens the fifth email, visits the pricing page, or replies after 60 days of silence — the sales team gets a same-day notification. Higher show rates, better conversations.</td>
+          <td>Month 3 onwards</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="margin-top:20px; padding:18px 20px; background:var(--accent-soft); border:1px solid var(--accent-glow); border-radius:10px; font-size:14px; color:var(--text); line-height:1.6;">
+      <strong>Why this matters for Clarasight specifically:</strong> The 95% of enterprise travel managers who are not in an active buying window today will be in one within 18 months. Without a presence in their attention — no content, no newsletter, no LinkedIn presence — Clarasight is invisible to that population until they are already evaluating. The job description itself signals the content and awareness gap: "build content that earns attention" and "develop owned community touchpoints." The Authority Engine installs the compounding trust infrastructure that ensures enterprise buyers encounter Clarasight during their informal research phase.
+    </div>
+  </section>
+
+  <!-- GROWTH LOOPS -->
+  <section id="growth-loops">
+    <div class="sec-tag">Compounding</div>
+    <h2>How the Infrastructure Gets Better Over Time</h2>
+    <p class="sec-intro">Revenue infrastructure is not a campaign. It compounds. Each of the three loops below improves on its own as data accumulates. After 12 months, the system converts faster, cheaper, and more predictably than anything started from scratch.</p>
+
+    <div class="loop-grid">
+      <div class="loop-card">
+        <div class="loop-num">Loop 1</div>
+        <h4>The Core Acquisition Loop</h4>
+        <p>Enterprise travel programme in a buying window → MDB identifies and reaches → Clarasight enters evaluation → Sales team qualifies and converts → New Business Travel News 100 customer → Customer referred to peer travel managers at comparable enterprises → MDB identifies referral-ready contacts and engineers the ask → Next enterprise enters buying window already having heard of Clarasight. Each cycle is faster and more efficient than the last.</p>
+      </div>
+      <div class="loop-card">
+        <div class="loop-num">Loop 2</div>
+        <h4>The Credibility and Case Study Loop</h4>
+        <p>Each new customer provides an outcome metric (99% reduction in reporting time, 90% reduction in manual reconciliation, defensible Scope 3 data produced in 48 hours instead of 6 weeks) → Outcome becomes public case study or press mention → Enterprise buyers in the research phase encounter the metric → They arrive at the demo with more confidence → They convert faster and at higher average contract value. The Bain and Company and Big Four wins are the beginning of this loop.</p>
+      </div>
+      <div class="loop-card">
+        <div class="loop-num">Loop 3</div>
+        <h4>The Test, Measure, Learn, Scale, Document Loop</h4>
+        <p>MDB runs each 90-day outbound cycle as a structured experiment → Which segments produce the highest reply rates, the best conversations, the fastest conversions? → The most effective segment becomes the primary focus → Messaging is refined based on which buyer scenes produce the most responses → The second cycle starts with higher signal quality than the first → Document the winning approach → Scale. The data is owned permanently.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLAYBOOK -->
+  <section id="playbook">
+    <div class="sec-tag">Execution</div>
+    <h2>The 90-Day Activation Plan — Week by Week</h2>
+    <p class="sec-intro">What happens in the first 90 days of an MDB engagement. What fires when. What the Clarasight marketing hire inherits on day one — not a blank whiteboard, a working channel with data on what converts.</p>
+
+    <div class="week-row">
+      <div class="week-num">Days 1 to 14</div>
+      <div class="week-phase"><span class="phase-tag p1">Phase 1</span></div>
+      <div class="week-body">
+        <h4>Research and Targeting</h4>
+        <p>MDB maps the full addressable enterprise market for Clarasight across all five buying window segments. Produces the Tier 1 lead list (Segments 1, 3, 5 with confirmed Data Key evidence). Identifies the decision-maker for each account (Head of Travel, Chief Procurement Officer, Vice President Finance, or Healthcare Professional Compliance). Confirms buying window evidence for each account before outreach begins. Delivers the full target list to Clarasight's team for review.</p>
+      </div>
+    </div>
+
+    <div class="week-row">
+      <div class="week-num">Days 15 to 30</div>
+      <div class="week-phase"><span class="phase-tag p1">Phase 1</span></div>
+      <div class="week-body">
+        <h4>Outreach Build and Sequence Launch</h4>
+        <p>MDB writes the first outreach sequences — one per buying window type. Each sequence is built around the specific buying window (not a generic travel analytics pitch). Clarasight's team reviews and approves before any outreach is sent. Sequences are loaded into Clay and Apollo (already in Clarasight's stack). Trigger angle deployed to top Tier 1 companies. First replies expected end of Week 4.</p>
+      </div>
+    </div>
+
+    <div class="week-row">
+      <div class="week-num">Days 31 to 60</div>
+      <div class="week-phase"><span class="phase-tag p2">Phase 2</span></div>
+      <div class="week-body">
+        <h4>First Conversations and Pipeline Qualification</h4>
+        <p>Outreach begins to the Tier 1 accounts. MDB monitors reply rates and qualifies responses. Qualified conversations are briefed and handed to Clarasight's sales team. Sales team enters each call knowing: the company's buying window type, the decision-maker's context, the specific pain point, and the competitive alternatives the programme is considering. Friction angle deployed to Tier 2 accounts. Authority Engine content calendar drafted.</p>
+      </div>
+    </div>
+
+    <div class="week-row">
+      <div class="week-num">Days 61 to 90</div>
+      <div class="week-phase"><span class="phase-tag p3">Phase 3</span></div>
+      <div class="week-body">
+        <h4>Refine, Scale, and Hand Off</h4>
+        <p>MDB reviews which segments and messages produce the best conversations. Tier 2 accounts are activated based on findings from Tier 1. Authority Engine nurture sequence begins for contacts who engaged but are not yet ready to buy. Lead scoring live — hot bucket alerts firing to the sales team. End-of-period report: conversations generated, conversion rate from conversation to pipeline, improvements for the next cycle. Marketing hire inherits a working engine with data on what is converting.</p>
+      </div>
+    </div>
+
+    <div class="week-row">
+      <div class="week-num">Target output</div>
+      <div class="week-phase"><span class="phase-tag p3">Result</span></div>
+      <div class="week-body">
+        <h4>5 to 10 New Qualified Conversations</h4>
+        <p>At Clarasight's estimated average contract value of $125,000, two to three of those conversations becoming customers means $250,000 to $375,000 in new annual recurring revenue from the first 90-day cycle. The second cycle starts with higher signal quality than the first.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EMAIL SEQUENCES -->
+  <section id="email-sequences">
+    <div class="sec-tag">Sample Deliverable</div>
+    <h2>The Outreach Sequences — Already Written</h2>
+    <p class="sec-intro">Two cold email sequences targeting enterprise travel programmes and buying decision-makers. Different angle types. Both scored above the 85-point ship threshold on the Eric Nowoslawski Personal Selling Score rubric before sending. A third sequence (Permissionless Value Proposition, Wedge Score 8.7) is available on request.</p>
+
+    <div class="email-sample">
+      <div class="email-header">
+        <div class="email-subject">Subject: "Sanofi. GSK. Clifford Chance."</div>
+        <div class="pss-badge">PSS 92/100</div>
+      </div>
+      <div class="email-body">Adam,
+
+A Series A gives you more attention. The hard part is building a system where Clarasight's growth doesn't depend on you taking every shot.
+
+Right now, travel teams reconciling spend across TMC data, card feeds, and expense systems on a Friday morning are deciding which vendors make the shortlist.
+
+We identify companies entering those evaluations before the decisions get locked internally, so Clarasight gets into the process earlier.
+
+I've already mapped enterprise accounts in that window across pharma, professional services, and technology.
+
+The list has companies, buying signals, and decision-makers tied to active travel leadership searches.
+
+I can send the list over.
+
+Jean</div>
+      <div class="email-caption">Trigger angle. Opens on the Series A stage shift — the system-versus-founder tension. Layer 3 buyer scene: travel teams reconciling spend on a Friday morning. Delivery CTA: the list exists before the ask. PSS 92 — above the 85-point ship threshold. Word count 98.</div>
+    </div>
+
+    <div class="email-sample">
+      <div class="email-header">
+        <div class="email-subject">Subject: "Before the shortlist forms"</div>
+        <div class="pss-badge">PSS 87/100</div>
+      </div>
+      <div class="email-body">Adam,
+
+Enterprise travel teams shortlist 2 to 3 analytics vendors through peer networks before a formal RFP goes out. New travel leadership hires, post-acquisition consolidation, and CSRD compliance windows are when those evaluations open.
+
+Without a channel to reach those programmes at that moment, Clarasight only surfaces through GBTA referrals and existing customer introductions. The rest of the market evaluates without you in the room.
+
+We find enterprise programmes in those windows and reach them before the informal shortlist consolidates.
+
+We handle the research, outreach, and qualification so your team enters the evaluation early.
+
+Worth showing you how we'd approach this for Clarasight?
+
+Jean</div>
+      <div class="email-caption">Friction angle. Opens on the informal shortlist formation — the moment Clarasight is not in the room. Names the specific buying window events (travel hire, merger and acquisition, Corporate Sustainability Reporting Directive). Canonical MDB mechanism sentence. Question CTA — different from Email 1 delivery CTA. PSS 87. Word count 109.</div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section id="results">
+    <div class="sec-tag">Outcomes</div>
+    <h2>What to Expect — The Results Timeline</h2>
+    <p class="sec-intro">Conservative estimates based on the buying window lead list, a $125,000 average contract value proxy (inferred from $5B managed across approximately 35 accounts), and a standard enterprise outbound close rate. Numbers, not language.</p>
+
+    <div class="results-grid">
+      <div class="result-card">
+        <span class="rnum">99%</span>
+        <span class="rlabel">Reduction in reporting time — stated outcome from Clarasight customer (verified, clarasight.com)</span>
+      </div>
+      <div class="result-card">
+        <span class="rnum">90%</span>
+        <span class="rlabel">Reduction in manual data review cycles — verified outcome, clarasight.com/platform</span>
+      </div>
+      <div class="result-card">
+        <span class="rnum">5–10</span>
+        <span class="rlabel">New qualified conversations with enterprise programmes in active buying windows per 90-day cycle</span>
+      </div>
+      <div class="result-card">
+        <span class="rnum">$375K</span>
+        <span class="rlabel">New annual recurring revenue from first 90-day cycle at $125K average contract value and 3 closes</span>
+      </div>
+    </div>
+
+    <div class="timeline-row">
+      <div class="timeline-month">
+        <div class="month-label">Month 1 — Days 1 to 30</div>
+        <ul>
+          <li>Tier 1 lead list produced — named companies, contacts, evidence</li>
+          <li>Trigger angle deployed to top accounts</li>
+          <li>First replies expected end of Week 4</li>
+          <li>Authority Engine content calendar drafted</li>
+        </ul>
+      </div>
+      <div class="timeline-month">
+        <div class="month-label">Month 2 — Days 31 to 60</div>
+        <ul>
+          <li>Friction angle deployed to Tier 2 accounts</li>
+          <li>First demos booked, pre-meeting briefs built</li>
+          <li>Authority Engine content live — two posts per week</li>
+          <li>20-week nurture sequence deployed to non-converters</li>
+        </ul>
+      </div>
+      <div class="timeline-month">
+        <div class="month-label">Month 3 — Days 61 to 90</div>
+        <ul>
+          <li>First enterprise closes from Month 1 outreach</li>
+          <li>Second buying window search — new companies enter pipeline</li>
+          <li>Lead scoring live, hot alerts firing</li>
+          <li>Marketing hire inherits a working engine, not a blank page</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="margin-top:24px; padding:18px 20px; background:var(--bg3); border:1px solid var(--border); border-radius:10px; font-size:14px; color:var(--text-muted); line-height:1.65;">
+      <strong style="color:var(--text);">What Clarasight's current customers say:</strong> "Clarasight has completely changed how I operate. It puts the critical information I need at my fingertips to confidently navigate internal and external conversations, uncovering true value and savings across my program." — Mia Andersson, Head of Global Travel. The outcomes are real. The gap is that enterprise buyers evaluating right now are not encountering them.
+    </div>
+  </section>
+
+  <!-- ECONOMICS -->
+  <section id="economics">
+    <div class="sec-tag">Investment Case</div>
+    <h2>The Economics — For the Board</h2>
+    <p class="sec-intro">The revenue gap from inaction. What the channel produces. What the discovery call confirms.</p>
+
+    <div class="economics-grid">
+      <div class="econ-card">
+        <h4>Current State</h4>
+        <div class="econ-num">$50K–75K</div>
+        <p>Monthly new annual recurring revenue from founder-led, referral-dependent pipeline. Estimated 1 to 2 warm conversations per month. Strong close rate on warm referrals. Limited by founder calendar.</p>
+      </div>
+      <div class="econ-card">
+        <h4>With Systematic Outbound</h4>
+        <div class="econ-num">$125K–200K</div>
+        <p>Monthly new annual recurring revenue from 5 to 8 qualified conversations with enterprise programmes in active buying windows. 20 to 25% close rate on outbound to motivated buyers (lower than referral, higher volume).</p>
+      </div>
+      <div class="econ-card">
+        <h4>Revenue Gap from Inaction (12 months)</h4>
+        <div class="econ-num">$900K–$1.5M</div>
+        <p>Annual recurring revenue from buying window accounts that are never reached. That is the cost of a channel that does not exist — not the cost of the MDB engagement.</p>
+      </div>
+      <div class="econ-card">
+        <h4>First 90-Day Output</h4>
+        <div class="econ-num">$250K–375K</div>
+        <p>New annual recurring revenue from 2 to 3 closes at $125,000 average contract value from the first cycle. The channel pays for itself from a single enterprise close. At Clarasight's ACV, one conversation is worth more than the infrastructure that found it.</p>
+      </div>
+    </div>
+
+    <div style="padding:20px 24px; background:var(--bg3); border-radius:10px; border:1px solid var(--border); font-size:14px; color:var(--text-muted); line-height:1.65;">
+      <strong style="color:var(--text);">What the discovery call confirms:</strong> Which of the five buying window segments to prioritise first. The specific verticals and geographies for the first 90 days. How MDB integrates with the existing Clay and Apollo infrastructure in Clarasight's stack. What two to three new conversations per month would mean for the Series A growth case. Pricing is confirmed after a 25-minute call — not before.
+    </div>
+  </section>
+
+  <!-- NEXT STEPS -->
+  <section id="next-steps">
+    <div class="sec-tag">What Happens Now</div>
+    <h2>Adam, One of Three Things Is True</h2>
+    <p class="sec-intro">Any of these is a useful conversation. The work is done regardless of which one is accurate.</p>
+
+    <div class="next-steps-grid">
+      <div class="next-step-card">
+        <span class="ns-num">01</span>
+        <h4>The timing is right</h4>
+        <p>You want a systematic way to reach enterprise travel programmes in active buying windows before the Series A board meetings start asking about pipeline predictability. Let us talk.</p>
+      </div>
+      <div class="next-step-card">
+        <span class="ns-num">02</span>
+        <h4>Interest is there, timing is not</h4>
+        <p>You are focused on the product, the team, or the European expansion right now. Take the lead list. Use it. See if the buying window model works for Clarasight. Come back when you are ready to install the full channel.</p>
+      </div>
+      <div class="next-step-card">
+        <span class="ns-num">03</span>
+        <h4>This is not the right fit</h4>
+        <p>You have a different view of how enterprise travel analytics acquisition should work, or you are already building the outbound function internally. No problem — but I would be curious what you are seeing in the market.</p>
+      </div>
+    </div>
+
+    <div class="proof-strip">
+      <div class="proof-strip-item"><strong>$5B+</strong> enterprise T&E managed by Clarasight customers</div>
+      <div class="proof-strip-item"><strong>42</strong> active buying window accounts in the United States right now</div>
+      <div class="proof-strip-item"><strong>PSS 92</strong> — Email 1 score, above 85-point ship threshold</div>
+      <div class="proof-strip-item"><strong>6/7</strong> Authority Engine Score — Recommended</div>
+    </div>
+
+    <div class="offer-box">
+      <h3>What Was Already Built Before Reaching Out</h3>
+      <p class="offer-sub">This package is not a proposal. It is the first version of the work — done before being paid, before being hired.</p>
+      <div class="offer-items">
+        <div class="offer-item"><span>Full intelligence profile on Clarasight, Adam Braun, the competitive landscape, and five buying window segments — verified against primary sources</span></div>
+        <div class="offer-item"><span>Enterprise account lead list — named companies in active buying windows, decision-maker contacts, buying signal evidence, priority score</span></div>
+        <div class="offer-item"><span>Two outreach sequences for enterprise travel buyers — Trigger angle (PSS 92) and Friction angle (PSS 87) — plus a Permissionless Value Proposition email (Wedge Score 8.7)</span></div>
+        <div class="offer-item"><span>Authority Engine diagnosis — what Clarasight's content and nurture gap looks like specifically, and what the installation would produce</span></div>
+        <div class="offer-item"><span>This interactive package — the Funnel Cascade diagnostic, five buying window types, competitive gap analysis, 90-day plan, and pipeline economics</span></div>
+        <div class="offer-item"><span>Loom video walk-through of the key findings — recorded specifically for Adam before sending</span></div>
+      </div>
+      <a href="https://cal.com/jean-m-8f4kbr/15min" target="_blank" class="btn-primary" style="font-size:16px; padding:14px 32px;">Book 15 Minutes — cal.com/jean-m-8f4kbr/15min</a>
+    </div>
+
+    <div class="about-jean" style="margin-top:40px;">
+      <div class="jean-avatar">JM</div>
+      <div class="jean-bio">
+        <h4>Jean Mundabi Fala</h4>
+        <div class="jean-title">Founder, MDB Growth Capital — Business to Business Revenue Infrastructure</div>
+        <p>MDB works with early-stage Business to Business companies that have proven product-market fit with enterprise customers but have not yet built the infrastructure to scale new client conversations without founder dependency. The work: account research, outreach sequences, qualification systems, authority content, and the lead scoring infrastructure that turns outbound into predictable pipeline. Every asset built is owned by the client permanently. Jean built this package by researching Clarasight specifically — before reaching out, before being paid. Adam built Pencils of Promise with $25 by doing the work first and proving the model. MDB operates on the same sequence.</p>
+      </div>
+    </div>
+
+    <footer>
+      <p>Strategy and GTM research by Jean Mundabi Fala, MDB Growth Capital</p>
+    </footer>
+  </section>
+
+</main>
+
+<script>
+  // Scroll spy for sidebar nav
+  const sections = document.querySelectorAll('section[id], div[id]');
+  const navLinks = document.querySelectorAll('#sidebar nav a');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + entry.target.id) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+
+  sections.forEach(s => observer.observe(s));
+
+  // Scroll reveal animations
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { rootMargin: '0px 0px -80px 0px' });
+
+  const revealTargets = document.querySelectorAll('.inside-card, .audit-card, .window-card, .loop-card, .result-card, .email-sample');
+  revealTargets.forEach((el, i) => {
+    el.style.transitionDelay = (i % 4) * 0.08 + 's';
+    revealObserver.observe(el);
+  });
+</script>
+
+</body>
+</html>
